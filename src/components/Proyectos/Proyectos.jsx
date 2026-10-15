@@ -1,37 +1,89 @@
 import Icon from '../icons/Icon.jsx';
+import { useLanguage } from '../../hooks/useLanguage.js';
+import { translations } from '../../i18n/translations.js';
+import { PROFILE } from '../../data/portfolio.js';
+import { PROJECTS } from '../../data/projects.js';
 import './Proyectos.css';
-import proyectoWeb from '../../assets/proyecto-web.svg';
-import proyectoDatos from '../../assets/proyecto-datos.svg';
-import proyectoApp from '../../assets/proyecto-app.svg';
 
-const proyectosData = [
-  { id: 1, imagen: proyectoWeb, titulo: 'Sitio web responsivo', descripcion: 'Página web adaptable a computadoras, tablets y celulares, organizada en componentes reutilizables.', tecnologias: ['HTML5', 'CSS3', 'React'], linkDemo: '#contacto', linkCodigo: 'https://github.com/' },
-  { id: 2, imagen: proyectoDatos, titulo: 'Panel de información', descripcion: 'Propuesta de panel para ordenar información importante y presentarla de manera fácil de leer.', tecnologias: ['JavaScript', 'CSS Grid', 'UI'], linkDemo: '#contacto', linkCodigo: 'https://github.com/' },
-  { id: 3, imagen: proyectoApp, titulo: 'Prototipo de aplicación', descripcion: 'Interfaz de ejemplo para practicar navegación, formularios y separación del código por componentes.', tecnologias: ['React', 'Bootstrap', 'Git'], linkDemo: '#contacto', linkCodigo: 'https://github.com/' },
-];
+const Proyectos = () => {
+  const { lang } = useLanguage();
+  const t = translations[lang].proyectos;
+  const [featured, ...rest] = PROJECTS;
 
-const Proyectos = () => (
-  <section id="proyectos" className="section projects-section">
-    <div className="section-wrap">
-      <div className="section-heading"><span className="section-kicker">Trabajo seleccionado</span><h2 className="section-title">Proyectos destacados</h2><p className="section-intro">Sustituye estas tarjetas de ejemplo por los trabajos que hayas realizado en clase o por tu cuenta.</p></div>
-      <div className="proyectos-grid">
-        {proyectosData.map((proyecto) => (
-          <article key={proyecto.id} className="proyecto-card">
-            <div className="proyecto-imagen"><img src={proyecto.imagen} alt={`Ilustración de ${proyecto.titulo}`} loading="lazy" /></div>
-            <div className="proyecto-contenido">
-              <span className="project-index">PROYECTO 0{proyecto.id}</span>
-              <h3 className="proyecto-titulo">{proyecto.titulo}</h3>
-              <p className="proyecto-desc">{proyecto.descripcion}</p>
-              <div className="proyecto-tags">{proyecto.tecnologias.map((tech) => <span key={tech} className="tech-tag">{tech}</span>)}</div>
-              <div className="proyecto-links">
-                <a href={proyecto.linkDemo} className="btn-proyecto btn-demo">Ver proyecto <Icon name="arrowUpRight" size={16} /></a>
-                <a href={proyecto.linkCodigo} target="_blank" rel="noreferrer" className="btn-proyecto btn-codigo">Ver código <Icon name="arrowUpRight" size={16} /></a>
-              </div>
-            </div>
-          </article>
-        ))}
+  const renderCard = (project, index, isFeatured) => {
+    const copy = t.items[project.id];
+    return (
+      <article
+        key={project.id}
+        className={`project-card${isFeatured ? ' project-card--featured' : ''}`}
+        data-reveal
+        data-reveal-delay={index * 90}
+      >
+        <div className="project-card__media">
+          <img src={project.image} alt={copy.titulo} loading="lazy" decoding="async" width="720" height="460" />
+          <p className="project-card__state">
+            <span className="status-dot" aria-hidden="true" /> {t.statusValue}
+          </p>
+        </div>
+
+        <div className="project-card__body">
+          <p className="project-card__label">
+            {isFeatured ? t.featuredLabel : `0${index + 1}`}
+          </p>
+          <h3 className="project-card__title">{copy.titulo}</h3>
+          <p className="project-card__desc">{copy.descripcion}</p>
+
+          <p className="project-card__contribution">
+            <strong>{t.contributionLabel}:</strong> {copy.contribution}
+          </p>
+
+          <div className="project-card__stack">
+            <span className="project-card__stack-label">{t.stackLabel}</span>
+            <ul>
+              {project.tech.map((tech) => (
+                <li key={tech} className="chip">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a
+            className="dx-btn dx-btn--violet project-card__link"
+            href={project.repo}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Icon name="github" size={17} /> {t.codeLabel}
+            <Icon name="externalLink" size={15} />
+          </a>
+        </div>
+      </article>
+    );
+  };
+
+  return (
+    <section id="proyectos" className="section projects">
+      <div className="section-wrap">
+        <div className="section-heading" data-reveal>
+          <span className="section-kicker">{t.kicker}</span>
+          <h2 className="section-title">{t.title}</h2>
+          <p className="section-intro">{t.intro}</p>
+        </div>
+
+        <div className="projects__grid">
+          {featured && renderCard(featured, 0, true)}
+          {rest.map((project, index) => renderCard(project, index + 1, false))}
+        </div>
+
+        <p className="projects__more" data-reveal>
+          <a href={PROFILE.github} target="_blank" rel="noreferrer">
+            {t.all} <Icon name="arrowUpRight" size={16} />
+          </a>
+        </p>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
+
 export default Proyectos;

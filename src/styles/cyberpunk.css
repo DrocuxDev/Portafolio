@@ -1,0 +1,205 @@
+/* ============================================================
+   DrocuxDev · Capa de efectos (neón controlado)
+   Rejilla, iluminación ambiental y microdetalles luminosos
+   ============================================================ */
+
+/* Fondo ambiental con rejillas y resplandores */
+body {
+  background:
+    radial-gradient(ellipse 60% 45% at 12% -5%, rgba(139, 44, 255, 0.24), transparent 62%),
+    radial-gradient(ellipse 50% 40% at 88% 4%, rgba(176, 38, 255, 0.16), transparent 60%),
+    radial-gradient(ellipse 70% 45% at 50% 108%, rgba(0, 216, 255, 0.12), transparent 68%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+/* Rejilla técnica fija, desvanecida hacia los bordes */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 216, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 216, 255, 0.05) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(ellipse 95% 70% at 50% 18%, #000 22%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 70% at 50% 18%, #000 22%, transparent 100%);
+}
+
+/* ---- Cabeceras luminosas ---- */
+.hero-title,
+.section-title {
+  text-shadow: 0 0 26px rgba(139, 44, 255, 0.25);
+}
+.section-title .accent,
+.hero-title .accent {
+  background: linear-gradient(100deg, var(--cyan), var(--violet) 52%, var(--magenta));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Destello glitch sutil, solo al pasar el cursor */
+.hero-title .accent {
+  position: relative;
+  display: inline-block;
+}
+.hero-title .accent::before,
+.hero-title .accent::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+}
+.hero-title .accent::before {
+  color: var(--magenta);
+  clip-path: inset(0 0 58% 0);
+}
+.hero-title .accent::after {
+  color: var(--cyan);
+  clip-path: inset(56% 0 0 0);
+}
+.hero-title .accent:hover::before {
+  opacity: 0.85;
+  animation: cyber-glitch 0.9s steps(2, end);
+}
+.hero-title .accent:hover::after {
+  opacity: 0.85;
+  animation: cyber-glitch 0.9s steps(2, end) reverse;
+}
+@keyframes cyber-glitch {
+  0% { transform: translate(-3px, -1px); }
+  35% { transform: translate(3px, 1px); }
+  70% { transform: translate(-2px, 1px); }
+  100% { transform: translate(0, 0); opacity: 0; }
+}
+
+/* ---- Enlaces de navegación con subrayado neón ---- */
+.navbar-links a {
+  position: relative;
+}
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--t-base);
+}
+.navbar-links a:hover::after,
+.navbar-links a[aria-current='true']::after {
+  transform: scaleX(1);
+}
+
+/* ---- Botón de idioma ---- */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: rgba(139, 44, 255, 0.08);
+  color: var(--text-dim);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition: box-shadow var(--t-base), background var(--t-base), color var(--t-base);
+}
+.lang-toggle:hover {
+  background: rgba(139, 44, 255, 0.16);
+  box-shadow: 0 0 18px rgba(139, 44, 255, 0.35);
+}
+.lang-toggle .is-active {
+  color: var(--cyan);
+}
+
+/* ---- Punto de estado pulsante ---- */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+  animation: status-pulse 2.4s ease-in-out infinite;
+}
+@keyframes status-pulse {
+  0%, 100% { box-shadow: 0 0 8px var(--green); opacity: 1; }
+  50% { box-shadow: 0 0 18px var(--green); opacity: 0.65; }
+}
+
+/* ---- Marquesina de tecnologías ---- */
+.tech-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.tech-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+.tech-marquee:hover .tech-marquee__track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---- Tarjetas con borde luminoso al pasar el cursor ---- */
+.skill-card,
+.project-card,
+.service-card,
+.profile-card,
+.contact-panel {
+  transition: transform var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
+}
+.skill-card:hover,
+.project-card:hover,
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139, 44, 255, 0.5);
+  box-shadow: var(--shadow-md), 0 0 30px rgba(139, 44, 255, 0.2);
+}
+
+/* ---- Retícula decorativa de esquina ---- */
+.corner-frame::before,
+.corner-frame::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--cyan);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.corner-frame::before {
+  top: 10px;
+  left: 10px;
+  border-right: 0;
+  border-bottom: 0;
+}
+.corner-frame::after {
+  right: 10px;
+  bottom: 10px;
+  border-left: 0;
+  border-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot,
+  .tech-marquee__track {
+    animation: none;
+  }
+}

@@ -1,18 +1,125 @@
- .navbar-portfolio {
-  display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;
-  padding: 1.2rem 5%; background: rgba(11,15,25,.96); color: #fff;
-  position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,.07);
-  backdrop-filter: blur(16px);
+/* ===== Navbar ===== */
+.navbar-portfolio {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(3, 6, 17, 0.6);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: background var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
 }
-.navbar-logo { color: #fff; text-decoration: none; font-size: 1.12rem; font-weight: 800; letter-spacing: .07em; white-space: nowrap; }
-.logo-dot { color: #6ee7b7; }
-.navbar-links { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2.3rem); }
-.navbar-links a { color: #a0aab8; text-decoration: none; font-size: .92rem; font-weight: 600; transition: color .2s ease; }
-.navbar-links a:hover { color: #00d8ff; }
-.navbar-toggle { display: none; flex-direction: column; gap: 5px; padding: .4rem; border: 0; background: transparent; cursor: pointer; }
-.navbar-toggle .bar { display: block; width: 26px; height: 2.5px; border-radius: 2px; background: #fff; }
-@media (max-width: 780px) {
-  .navbar-toggle { display: flex; }
-  .navbar-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; padding: 1.3rem 0 1.6rem; background: #0b0f19; flex-direction: column; gap: 1.3rem; border-bottom: 1px solid rgba(255,255,255,.08); }
-  .navbar-links.open { display: flex; }
+.navbar-portfolio.is-scrolled {
+  background: rgba(6, 9, 22, 0.9);
+  border-bottom-color: var(--line-soft);
+  box-shadow: 0 10px 34px rgba(2, 4, 12, 0.55);
+}
+
+.navbar-portfolio__inner {
+  width: min(var(--maxw), 100% - (var(--gutter) * 2));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 0.85rem 0;
+}
+
+.navbar-logo {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.9rem);
+}
+.navbar-links a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+.navbar-links a:hover,
+.navbar-links a[aria-current='true'] {
+  color: var(--text);
+}
+
+.navbar-toggle {
+  display: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  transition: border-color var(--t-base), box-shadow var(--t-base);
+}
+.navbar-toggle:hover {
+  border-color: var(--cyan-a20);
+  box-shadow: 0 0 16px rgba(0, 216, 255, 0.2);
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+@media (max-width: 880px) {
+  .navbar-toggle {
+    display: grid;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 1rem var(--gutter) 1.6rem;
+    background: #070b1a;
+    border-bottom: 1px solid var(--line-soft);
+    box-shadow: 0 24px 44px rgba(2, 4, 12, 0.6);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity var(--t-base), transform var(--t-base), visibility var(--t-base);
+  }
+  .navbar-links.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navbar-links a {
+    padding: 0.85rem 0.25rem;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 1rem;
+  }
+  .navbar-links a::after {
+    display: none;
+  }
+  .navbar-links a[aria-current='true'] {
+    color: var(--cyan);
+  }
+  .navbar-links .lang-toggle {
+    align-self: flex-start;
+    margin-top: 0.9rem;
+  }
 }

@@ -1,20 +1,52 @@
 import Icon from '../icons/Icon.jsx';
+import { useLanguage } from '../../hooks/useLanguage.js';
+import { translations } from '../../i18n/translations.js';
 import './Servicios.css';
 
-const services = [
-  { icon: 'code', title: 'Desarrollo web', text: 'Construcción de páginas claras, modernas y adaptables a diferentes dispositivos.' },
-  { icon: 'devices', title: 'Diseño responsive', text: 'Organización visual de contenidos para una experiencia consistente en PC y móvil.' },
-  { icon: 'blocks', title: 'Componentes React', text: 'División de interfaces en piezas reutilizables para mantener el proyecto ordenado.' },
-];
+const Servicios = () => {
+  const { lang } = useLanguage();
+  const t = translations[lang].servicios;
 
-const Servicios = () => (
-  <section id="servicios" className="section services-section">
-    <div className="section-wrap">
-      <div className="section-heading"><span className="section-kicker">En qué puedo aportar</span><h2 className="section-title">Servicios</h2><p className="section-intro">Estas tarjetas son ejemplos de áreas de interés. Ajusta el contenido a lo que realmente sabes hacer.</p></div>
-      <div className="services-grid">
-        {services.map((service) => <article className="service-card" key={service.title}><span className="service-icon"><Icon name={service.icon} size={24} /></span><h3>{service.title}</h3><p>{service.text}</p><a href="#contacto">Hablemos <Icon name="arrowUpRight" size={16} /></a></article>)}
+  return (
+    <section id="servicios" className="section services">
+      <div className="section-wrap">
+        <div className="services__head">
+          <div className="section-heading" data-reveal>
+            <span className="section-kicker">{t.kicker}</span>
+            <h2 className="section-title">{t.title}</h2>
+            <p className="section-intro">{t.intro}</p>
+          </div>
+          <a className="dx-btn dx-btn--primary services__cta" href="#contacto" data-reveal>
+            {t.cta} <Icon name="arrowRight" size={18} />
+          </a>
+        </div>
+
+        <div className="services__grid">
+          {t.items.map((service, index) => (
+            <article
+              key={service.title}
+              className="service-card"
+              data-reveal
+              data-reveal-delay={index * 80}
+            >
+              <span className="service-card__index" aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span className="service-card__icon">
+                <Icon name={service.icon} size={22} />
+              </span>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <p className="services__note" data-reveal>
+          <Icon name="spark" size={16} /> {t.note}
+        </p>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
+
 export default Servicios;

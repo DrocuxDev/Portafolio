@@ -1,30 +1,64 @@
+import Icon from '../icons/Icon.jsx';
+import { useLanguage } from '../../hooks/useLanguage.js';
+import { translations } from '../../i18n/translations.js';
+import { STACK_GROUPS, LEARNING } from '../../data/stack.js';
 import './Habilidades.css';
 
-const skillsData = [
-  { id: 1, titulo: 'HTML5', descripcion: 'Estructura semántica para páginas web.', nivel: 'Fundamentos' },
-  { id: 2, titulo: 'CSS3', descripcion: 'Diseño, Flexbox, Grid y adaptación responsive.', nivel: 'En práctica' },
-  { id: 3, titulo: 'JavaScript', descripcion: 'Variables, funciones, arreglos y eventos.', nivel: 'En aprendizaje' },
-  { id: 4, titulo: 'React', descripcion: 'Componentes, props, estado y composición de interfaces.', nivel: 'En aprendizaje' },
-  { id: 5, titulo: 'Git y GitHub', descripcion: 'Control de versiones y publicación de repositorios.', nivel: 'En práctica' },
-  { id: 6, titulo: 'Bootstrap', descripcion: 'Clases de utilidad y componentes adaptables.', nivel: 'Fundamentos' },
-];
+const Habilidades = () => {
+  const { lang } = useLanguage();
+  const t = translations[lang].skills;
 
-const Habilidades = () => (
-  <section id="tech-stack" className="section skills-section">
-    <div className="section-wrap">
-      <div className="section-heading"><span className="section-kicker">Tecnologías</span><h2 className="section-title">Habilidades y herramientas</h2><p className="section-intro">Estas son algunas de las tecnologías que utilizo o que estoy incorporando a mi flujo de trabajo.</p></div>
-      <div className="habilidades-grid">
-        {skillsData.map((skill, index) => (
-          <article key={skill.id} className="skill-card">
-            <div className="skill-header"><span className="skill-number">0{index + 1}</span><span className="skill-status">{skill.nivel}</span></div>
-            <h3 className="skill-title">{skill.titulo}</h3>
-            <p className="skill-desc">{skill.descripcion}</p>
-            <div className="skill-progress"><span style={{ width: `${[78, 70, 52, 48, 60, 65][index]}%` }}></span></div>
-          </article>
-        ))}
+  return (
+    <section id="tech-stack" className="section skills">
+      <div className="section-wrap">
+        <div className="section-heading" data-reveal>
+          <span className="section-kicker">{t.kicker}</span>
+          <h2 className="section-title">
+            {t.title.split(' ').slice(0, -1).join(' ')}{' '}
+            <span className="accent">{t.title.split(' ').slice(-1)}</span>
+          </h2>
+          <p className="section-intro">{t.intro}</p>
+        </div>
+
+        <div className="skills__grid">
+          {STACK_GROUPS.map((group, index) => (
+            <article
+              key={group.id}
+              className={`skill-card skills__group skills__group--${group.accent}`}
+              data-reveal
+              data-reveal-delay={index * 90}
+            >
+              <header className="skills__group-head">
+                <span className="skills__group-icon">
+                  <Icon name={group.icon} size={20} />
+                </span>
+                <div>
+                  <h3>{t.groups[group.id].title}</h3>
+                  <p>{t.groups[group.id].desc}</p>
+                </div>
+              </header>
+
+              <ul className="skills__list">
+                {group.items.map((item) => (
+                  <li className="skills__item" key={item}>
+                    <span className="skills__item-name">{item}</span>
+                    <span className="skills__item-note">{t.tech[item]}</span>
+                    {LEARNING.includes(item) && (
+                      <span className="skills__item-tag">{t.learning}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <p className="skills__note" data-reveal>
+          <Icon name="shield" size={16} /> {t.note}
+        </p>
       </div>
-      <p className="skills-note">Nota: actualiza los niveles según tus conocimientos reales.</p>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
+
 export default Habilidades;

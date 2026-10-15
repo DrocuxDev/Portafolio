@@ -1,7 +1,79 @@
- .services-section { background: #080c15; color: #fff; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,260px),1fr)); gap: 1.2rem; }
-.service-card { padding: 1.7rem; border-radius: 16px; border: 1px solid rgba(255,255,255,.07); background: linear-gradient(145deg,#121d31,#0e1524); }
-.service-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 12px; margin-bottom: 1.3rem; color: #00d8ff; background: rgba(0,216,255,.08); border: 1px solid rgba(0,216,255,.16); }
-.service-card h3 { color: #fff; font-size: 1.15rem; font-weight: 750; margin-bottom: .7rem; }
-.service-card p { color: #8f9bac; font-size: .9rem; line-height: 1.75; min-height: 4.8rem; }
-.service-card a { display: inline-flex; align-items: center; gap: .5rem; margin-top: .6rem; color: #00d8ff; text-decoration: none; font-weight: 700; font-size: .85rem; }
+/* ===== Servicios ===== */
+.services {
+  position: relative;
+  background: var(--bg-2);
+}
+
+.services__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.services__head .section-heading {
+  margin-bottom: 2rem;
+}
+.services__cta {
+  margin-bottom: 2rem;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 1.25rem;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.7rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  background: linear-gradient(160deg, var(--surface), var(--bg-2));
+}
+.service-card__index {
+  position: absolute;
+  top: 0.9rem;
+  right: 1.1rem;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(166, 174, 197, 0.09);
+  pointer-events: none;
+}
+.service-card__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--violet-a20);
+  border-radius: var(--r-md);
+  background: var(--violet-a10);
+  color: var(--magenta);
+}
+.service-card h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+.service-card p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.services__note {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.7rem;
+  color: var(--text-mute);
+  font-size: 0.84rem;
+}
+.services__note .icon-svg {
+  color: var(--cyan);
+  flex-shrink: 0;
+}
