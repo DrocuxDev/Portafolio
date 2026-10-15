@@ -1,0 +1,12 @@
+ .skills-section { background: #080c15; color: #fff; }
+.habilidades-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,260px),1fr)); gap: 1.1rem; }
+.skill-card { padding: 1.5rem; border: 1px solid rgba(255,255,255,.07); border-radius: 15px; background: #111a2b; transition: transform .2s ease,border-color .2s ease; }
+.skill-card:hover { transform: translateY(-4px); border-color: rgba(0,216,255,.35); }
+.skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.4rem; gap: .5rem; }
+.skill-number { color: #00d8ff; font-size: .75rem; font-weight: 800; letter-spacing: .15em; }
+.skill-status { color: #6ee7b7; font-size: .68rem; border: 1px solid rgba(110,231,183,.2); padding: .3rem .55rem; border-radius: 99px; }
+.skill-title { color: #fff; font-size: 1.15rem; font-weight: 750; margin-bottom: .65rem; }
+.skill-desc { color: #8f9bac; font-size: .88rem; line-height: 1.7; min-height: 3.1rem; margin-bottom: 1.3rem; }
+.skill-progress { height: 4px; overflow: hidden; background: rgba(255,255,255,.07); border-radius: 99px; }
+.skill-progress span { display: block; height: 100%; background: linear-gradient(90deg,#00d8ff,#6ee7b7); border-radius: 99px; }
+.skills-note { color: #657185; font-size: .78rem; margin-top: 1.3rem; }
