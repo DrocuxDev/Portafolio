@@ -30,10 +30,6 @@ export const translations = {
       marquee: ['React', 'Laravel', 'PHP', 'Python', 'Java', 'JavaScript', 'HTML5', 'CSS3', 'Vite', 'Bootstrap', 'Tailwind CSS', 'Git'],
       scroll: 'Bajar a la sección Sobre mí',
       socials: 'Perfiles y contacto directo',
-      previousScene: 'Mostrar imagen anterior',
-      nextScene: 'Mostrar imagen siguiente',
-      scenes: 'Imágenes de portada',
-      scene: 'Mostrar imagen',
     },
     perfil: {
       kicker: '< Sobre mí />',
@@ -202,10 +198,6 @@ export const translations = {
       marquee: ['React', 'Laravel', 'PHP', 'Python', 'Java', 'JavaScript', 'HTML5', 'CSS3', 'Vite', 'Bootstrap', 'Tailwind CSS', 'Git'],
       scroll: 'Scroll to the About section',
       socials: 'Profiles and direct contact',
-      previousScene: 'Show previous image',
-      nextScene: 'Show next image',
-      scenes: 'Cover images',
-      scene: 'Show image',
     },
     perfil: {
       kicker: '< About me />',
