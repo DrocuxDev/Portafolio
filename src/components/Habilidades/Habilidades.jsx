@@ -2,11 +2,18 @@ import Icon from '../icons/Icon.jsx';
 import { useLanguage } from '../../hooks/useLanguage.js';
 import { translations } from '../../i18n/translations.js';
 import { STACK_GROUPS, LEARNING } from '../../data/stack.js';
+import { CERTIFICATES } from '../../data/certificates.js';
 import './Habilidades.css';
 
 const Habilidades = () => {
   const { lang } = useLanguage();
   const t = translations[lang].skills;
+  const certificateDate = new Intl.DateTimeFormat(lang === 'es' ? 'es-PE' : 'en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
 
   return (
     <section id="tech-stack" className="section skills">
@@ -56,6 +63,38 @@ const Habilidades = () => {
         <p className="skills__note" data-reveal>
           <Icon name="shield" size={16} /> {t.note}
         </p>
+
+        <div className="skills__certificates" data-reveal>
+          <div className="skills__certificates-heading">
+            <span className="section-kicker">{t.certificates.kicker}</span>
+            <h3>{t.certificates.title}</h3>
+            <p>{t.certificates.intro}</p>
+          </div>
+          <div className="skills__certificates-grid">
+            {CERTIFICATES.map((certificate) => (
+              <article className="skills__certificate" key={certificate.id}>
+                <span className="skills__certificate-icon" aria-hidden="true">
+                  <Icon name="graduation" size={21} />
+                </span>
+                <div className="skills__certificate-body">
+                  <h4>{t.certificates.items[certificate.id]}</h4>
+                  <p>{t.certificates.issuer}</p>
+                  <time dateTime={certificate.date}>
+                    {certificateDate.format(new Date(`${certificate.date}T00:00:00Z`))}
+                  </time>
+                </div>
+                <div className="skills__certificate-actions">
+                  <a href={certificate.path} target="_blank" rel="noreferrer">
+                    {t.certificates.view} <Icon name="arrowUpRight" size={15} />
+                  </a>
+                  <a href={certificate.path} download>
+                    {t.certificates.download} <Icon name="download" size={15} />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
