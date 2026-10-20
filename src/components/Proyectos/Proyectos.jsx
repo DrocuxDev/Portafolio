@@ -8,14 +8,13 @@ import './Proyectos.css';
 const Proyectos = () => {
   const { lang } = useLanguage();
   const t = translations[lang].proyectos;
-  const [featured, ...rest] = PROJECTS;
 
-  const renderCard = (project, index, isFeatured) => {
+  const renderCard = (project, index) => {
     const copy = t.items[project.id];
     return (
       <article
         key={project.id}
-        className={`project-card project-card--${project.id}${isFeatured ? ' project-card--featured' : ''}`}
+        className={`project-card project-card--${project.id}`}
         data-reveal
         data-reveal-delay={index * 90}
       >
@@ -27,9 +26,7 @@ const Proyectos = () => {
         </div>
 
         <div className="project-card__body">
-          <p className="project-card__label">
-            {isFeatured ? t.featuredLabel : `0${index + 1}`}
-          </p>
+          <p className="project-card__label">{`0${index + 1}`}</p>
           <h3 className="project-card__title">{copy.titulo}</h3>
           <p className="project-card__desc">{copy.descripcion}</p>
 
@@ -97,8 +94,7 @@ const Proyectos = () => {
         </div>
 
         <div className="projects__grid">
-          {featured && renderCard(featured, 0, true)}
-          {rest.map((project, index) => renderCard(project, index + 1, false))}
+          {PROJECTS.map((project, index) => renderCard(project, index))}
         </div>
 
         <p className="projects__more" data-reveal>

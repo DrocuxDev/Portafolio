@@ -11,20 +11,17 @@ export const PROJECTS = [
     id: 'erp',
     repo: 'https://github.com/DrocuxDev/sistema-erp-saas',
     image: '/proyectos/erp-productos.png',
-    featured: true,
     tech: ['Laravel', 'Blade', 'PHP', 'JavaScript'],
   },
   {
     id: 'tickets',
     repo: 'https://github.com/DrocuxDev/app-sistema-tickets',
     image: '/proyectos/tickets-dashboard.png',
-    featured: false,
     tech: ['Laravel', 'Bootstrap', 'PHP', 'Blade'],
   },
   {
     id: 'girasol',
     image: '/proyectos/girasol-dual/girasol-dual.png',
-    featured: false,
     tech: ['Arduino Uno', 'C++', 'EAGLE', 'Tinkercad'],
     files: [
       {
@@ -44,7 +41,6 @@ export const PROJECTS = [
     repo: 'https://github.com/josuetareas/AppTareas',
     design: 'https://www.figma.com/make/NYxaM6i9IAu8T1gQlPGHqw/Pantallas-para-app-de-tareas?code-node-id=0-6&fullscreen=1',
     image: proyectoTareas,
-    featured: false,
     tech: ['Android', 'Java', 'Room', 'XML'],
   },
 ];
