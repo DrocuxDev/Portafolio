@@ -5,6 +5,22 @@ import { PROFILE } from '../../data/portfolio.js';
 import { PROJECTS } from '../../data/projects.js';
 import './Proyectos.css';
 
+const movePreview = (event) => {
+  if (event.pointerType === 'touch') return;
+
+  const bounds = event.currentTarget.getBoundingClientRect();
+  const x = Math.min(100, Math.max(0, ((event.clientX - bounds.left) / bounds.width) * 100));
+  const y = Math.min(100, Math.max(0, ((event.clientY - bounds.top) / bounds.height) * 100));
+
+  event.currentTarget.style.setProperty('--preview-x', `${x}%`);
+  event.currentTarget.style.setProperty('--preview-y', `${y}%`);
+};
+
+const resetPreview = (event) => {
+  event.currentTarget.style.setProperty('--preview-x', '50%');
+  event.currentTarget.style.setProperty('--preview-y', '50%');
+};
+
 const Proyectos = () => {
   const { lang } = useLanguage();
   const t = translations[lang].proyectos;
@@ -18,7 +34,11 @@ const Proyectos = () => {
         data-reveal
         data-reveal-delay={index * 90}
       >
-        <div className="project-card__media">
+        <div
+          className="project-card__media"
+          onPointerMove={movePreview}
+          onPointerLeave={resetPreview}
+        >
           <img src={project.image} alt={copy.imageAlt} loading="lazy" decoding="async" width="720" height="460" />
           <p className="project-card__state">
             <span className="status-dot" aria-hidden="true" /> {t.statusValue}
