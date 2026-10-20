@@ -1,28 +1,32 @@
 import { useState } from 'react';
 import Icon from '../icons/Icon.jsx';
-import miFoto from '../../assets/miFoto.svg';
 import { useLanguage } from '../../hooks/useLanguage.js';
 import { useCvAvailable } from '../../hooks/useCvAvailable.js';
 import { translations } from '../../i18n/translations.js';
 import { PROFILE } from '../../data/portfolio.js';
 import './Banner.css';
 
+const HERO_SCENES = ['/hero-neon.png', '/hero-neon-2.png', '/hero-neon-3.png'];
+
 const Banner = () => {
   const { lang } = useLanguage();
   const t = translations[lang].hero;
   const cvAvailable = useCvAvailable();
-
-  /**
-   * La portada original de la marca vive en public/portada-dev.png (ruta /portada-dev.png).
-   * Si el archivo no está disponible, el hero cae con elegancia al retrato existente
-   * en lugar de mostrar una imagen rota; no se sustituye por una imitación en CSS.
-   */
-  const [coverFailed, setCoverFailed] = useState(false);
+  const [activeScene, setActiveScene] = useState(0);
+  const changeScene = (step) => {
+    setActiveScene((current) => (current + step + HERO_SCENES.length) % HERO_SCENES.length);
+  };
 
   return (
     <section id="inicio" className="hero">
-      <div className="hero__glow hero__glow--violet" aria-hidden="true" />
-      <div className="hero__glow hero__glow--cyan" aria-hidden="true" />
+      {HERO_SCENES.map((scene, index) => (
+        <div
+          key={scene}
+          className={`hero__scene${index === activeScene ? ' is-active' : ''}`}
+          style={{ '--scene-image': `url('${scene}')` }}
+          aria-hidden="true"
+        />
+      ))}
 
       <div className="hero__inner">
         <div className="hero__copy" data-reveal>
@@ -32,7 +36,7 @@ const Banner = () => {
 
           <p className="hero__eyebrow">{t.eyebrow}</p>
           <h1 className="hero-title">
-            {PROFILE.firstName}{' '}
+            <span className="hero-title__first">{PROFILE.firstName}</span>
             <span className="accent" data-text={PROFILE.lastName}>
               {PROFILE.lastName}
             </span>
@@ -72,43 +76,25 @@ const Banner = () => {
             </li>
           </ul>
         </div>
-
-        <div className="hero__visual" data-reveal data-reveal-delay="140">
-          <div className={`hero__frame${coverFailed ? ' hero__frame--avatar' : ' corner-frame'}`}>
-            {coverFailed ? (
-              <img className="hero__avatar" src={miFoto} alt={t.avatarAlt} width="300" height="300" />
-            ) : (
-              <img
-                className="hero__cover"
-                src={PROFILE.coverPath}
-                alt={t.coverAlt}
-                width="1672"
-                height="940"
-                decoding="async"
-                fetchPriority="high"
-                onError={() => setCoverFailed(true)}
-              />
-            )}
-          </div>
-        </div>
       </div>
-
-      <div className="hero__band">
-        <div className="tech-marquee" aria-hidden="true">
-          <div className="tech-marquee__track">
-            {[...t.marquee, ...t.marquee].map((tech, index) => (
-              <span key={`${tech}-${index}`}>
-                {tech}
-                <i />
-              </span>
-            ))}
-          </div>
-        </div>
+      <button className="hero__arrow hero__arrow--prev" type="button" onClick={() => changeScene(-1)} aria-label={t.previousScene}>
+        <span aria-hidden="true">‹</span>
+      </button>
+      <button className="hero__arrow hero__arrow--next" type="button" onClick={() => changeScene(1)} aria-label={t.nextScene}>
+        <span aria-hidden="true">›</span>
+      </button>
+      <div className="hero__dots" role="group" aria-label={t.scenes}>
+        {HERO_SCENES.map((scene, index) => (
+          <button
+            key={scene}
+            type="button"
+            className={`hero__dot${index === activeScene ? ' is-active' : ''}`}
+            aria-label={`${t.scene} ${index + 1}`}
+            aria-pressed={index === activeScene}
+            onClick={() => setActiveScene(index)}
+          />
+        ))}
       </div>
-
-      <a className="hero__scroll" href="#sobre-mi" aria-label={t.scroll}>
-        <Icon name="arrowDown" size={22} />
-      </a>
     </section>
   );
 };

@@ -16,7 +16,7 @@
 }
 
 .navbar-portfolio__inner {
-  width: min(var(--maxw), 100% - (var(--gutter) * 2));
+  width: min(1500px, 80%);
   margin-inline: auto;
   display: flex;
   align-items: center;
@@ -77,6 +77,9 @@ body.nav-open {
 }
 
 @media (max-width: 880px) {
+  .navbar-portfolio__inner {
+    width: calc(100% - 2.4rem);
+  }
   .navbar-toggle {
     display: grid;
   }
