@@ -1,3 +1,5 @@
+import proyectoTareas from '../assets/proyecto-tareas.svg';
+
 /**
  * Proyectos reales publicados en GitHub. Los archivos descargables del
  * prototipo de electrónica se sirven desde public/proyectos/girasol-dual.
@@ -36,5 +38,13 @@ export const PROJECTS = [
         label: 'downloadBoard',
       },
     ],
+  },
+  {
+    id: 'apptareas',
+    repo: 'https://github.com/josuetareas/AppTareas',
+    design: 'https://www.figma.com/make/NYxaM6i9IAu8T1gQlPGHqw/Pantallas-para-app-de-tareas?code-node-id=0-6&fullscreen=1',
+    image: proyectoTareas,
+    featured: false,
+    tech: ['Android', 'Java', 'Room', 'XML'],
   },
 ];

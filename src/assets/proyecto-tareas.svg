@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="title desc">
+  <title id="title">Pantallas de la app de tareas</title>
+  <desc id="desc">Tres vistas móviles oscuras para lista de tareas, detalle y creación de una tarea.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#24131b"/>
+      <stop offset="1" stop-color="#0d0a0e"/>
+    </linearGradient>
+    <linearGradient id="phone" x2="1" y2="1">
+      <stop stop-color="#2a191c"/>
+      <stop offset="1" stop-color="#171013"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#000" flood-opacity=".48"/>
+    </filter>
+  </defs>
+  <rect width="800" height="440" fill="url(#bg)"/>
+  <circle cx="110" cy="90" r="170" fill="#a52751" opacity=".13"/>
+  <circle cx="680" cy="360" r="190" fill="#6e244a" opacity=".12"/>
+  <text x="400" y="35" text-anchor="middle" fill="#ba93a1" font-size="11" letter-spacing="3" font-family="Arial,sans-serif">APP · ANOTADOR DE TAREAS</text>
+
+  <!-- Lista -->
+  <g filter="url(#shadow)">
+    <rect x="65" y="57" width="200" height="330" rx="26" fill="#0d080a" stroke="#5d3944" stroke-width="2"/>
+    <rect x="75" y="68" width="180" height="307" rx="18" fill="url(#phone)"/>
+    <rect x="142" y="65" width="46" height="5" rx="2.5" fill="#422e33"/>
+  </g>
+  <text x="91" y="103" fill="#a2878e" font-size="8" letter-spacing="1.1" font-family="Arial,sans-serif">JUEVES, 10 DE SEPTIEMBRE</text>
+  <text x="91" y="133" fill="#fff5ed" font-size="25" font-family="Georgia,serif" font-weight="bold">5 pendientes</text>
+  <rect x="91" y="149" width="37" height="18" rx="9" fill="#a52a50"/>
+  <text x="109" y="161" text-anchor="middle" fill="#fff" font-size="8" font-family="Arial,sans-serif">Todas</text>
+  <text x="141" y="161" fill="#9c858a" font-size="8" font-family="Arial,sans-serif">Pendientes   Hechas</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="88" y="179" width="154" height="39" rx="8" fill="#342127"/>
+    <circle cx="103" cy="198" r="5" fill="none" stroke="#946f7a"/>
+    <text x="114" y="195" fill="#f4e7e1" font-size="9">Revisar propuesta</text>
+    <text x="114" y="208" fill="#af8c96" font-size="7">Trabajo · 10 sep</text>
+    <rect x="88" y="224" width="154" height="39" rx="8" fill="#342127"/>
+    <circle cx="103" cy="243" r="5" fill="none" stroke="#946f7a"/>
+    <text x="114" y="240" fill="#f4e7e1" font-size="9">Llamar al dentista</text>
+    <text x="114" y="253" fill="#af8c96" font-size="7">Salud · 12 sep</text>
+    <rect x="88" y="269" width="154" height="39" rx="8" fill="#342127"/>
+    <circle cx="103" cy="288" r="5" fill="#2bc48b"/>
+    <text x="114" y="285" fill="#bcb1ab" font-size="9">Comprar frutas</text>
+    <text x="114" y="298" fill="#af8c96" font-size="7">Hogar · 8 sep</text>
+    <circle cx="165" cy="344" r="17" fill="#a52a50"/>
+    <text x="165" y="350" text-anchor="middle" fill="#fff" font-size="18">+</text>
+  </g>
+
+  <!-- Detalle -->
+  <g filter="url(#shadow)">
+    <rect x="300" y="57" width="200" height="330" rx="26" fill="#0d080a" stroke="#5d3944" stroke-width="2"/>
+    <rect x="310" y="68" width="180" height="307" rx="18" fill="url(#phone)"/>
+    <rect x="377" y="65" width="46" height="5" rx="2.5" fill="#422e33"/>
+  </g>
+  <text x="326" y="100" fill="#bb9ca5" font-size="10" font-family="Arial,sans-serif">‹  Volver</text>
+  <rect x="326" y="118" width="57" height="19" rx="9" fill="#602436"/>
+  <text x="354" y="131" text-anchor="middle" fill="#f5c8d4" font-size="8" font-family="Arial,sans-serif">● Pendiente</text>
+  <text x="326" y="164" fill="#fff5ed" font-size="20" font-family="Georgia,serif" font-weight="bold">Revisar propuesta</text>
+  <text x="326" y="187" fill="#d59ba9" font-size="9" font-family="Arial,sans-serif">Trabajo  ·  Prioridad Alta</text>
+  <text x="326" y="218" fill="#9c858a" font-size="8" letter-spacing="1" font-family="Arial,sans-serif">NOTAS</text>
+  <text x="326" y="236" fill="#d8c6c2" font-size="9" font-family="Arial,sans-serif">Dar feedback al equipo sobre</text>
+  <text x="326" y="250" fill="#d8c6c2" font-size="9" font-family="Arial,sans-serif">el nuevo flujo de diseño.</text>
+  <rect x="326" y="273" width="148" height="43" rx="8" fill="#352126"/>
+  <text x="338" y="291" fill="#9c858a" font-size="7" font-family="Arial,sans-serif">VENCIMIENTO</text>
+  <text x="338" y="305" fill="#f4e7e1" font-size="9" font-family="Arial,sans-serif">10 de septiembre</text>
+  <rect x="326" y="333" width="148" height="26" rx="8" fill="#a52a50"/>
+  <text x="400" y="350" text-anchor="middle" fill="#fff" font-size="9" font-family="Arial,sans-serif">Marcar como completada</text>
+
+  <!-- Nueva tarea -->
+  <g filter="url(#shadow)">
+    <rect x="535" y="57" width="200" height="330" rx="26" fill="#0d080a" stroke="#5d3944" stroke-width="2"/>
+    <rect x="545" y="68" width="180" height="307" rx="18" fill="url(#phone)"/>
+    <rect x="612" y="65" width="46" height="5" rx="2.5" fill="#422e33"/>
+  </g>
+  <text x="560" y="100" fill="#c7a5ae" font-size="9" font-family="Arial,sans-serif">Cancelar</text>
+  <text x="635" y="100" text-anchor="middle" fill="#fff5ed" font-size="11" font-family="Georgia,serif" font-weight="bold">Nueva tarea</text>
+  <text x="704" y="100" text-anchor="end" fill="#d16684" font-size="9" font-family="Arial,sans-serif">Guardar</text>
+  <g font-family="Arial,sans-serif">
+    <text x="560" y="128" fill="#9c858a" font-size="8" letter-spacing="1">TÍTULO *</text>
+    <rect x="560" y="137" width="160" height="30" rx="7" fill="#352126"/>
+    <text x="571" y="156" fill="#f4e7e1" font-size="9">Preparar presentación</text>
+    <text x="560" y="192" fill="#9c858a" font-size="8" letter-spacing="1">NOTAS</text>
+    <rect x="560" y="201" width="160" height="48" rx="7" fill="#352126"/>
+    <text x="571" y="219" fill="#c6abb1" font-size="9">Incluir métricas...</text>
+    <text x="560" y="273" fill="#9c858a" font-size="8" letter-spacing="1">CATEGORÍA</text>
+    <rect x="560" y="283" width="55" height="19" rx="9" fill="#6a253a"/>
+    <text x="588" y="296" text-anchor="middle" fill="#fff" font-size="8">Trabajo</text>
+    <text x="624" y="296" fill="#a68a91" font-size="8">Personal   Salud</text>
+    <text x="560" y="327" fill="#9c858a" font-size="8" letter-spacing="1">PRIORIDAD</text>
+    <rect x="560" y="338" width="43" height="20" rx="9" fill="#6a253a"/>
+    <text x="581" y="352" text-anchor="middle" fill="#fff" font-size="8">Alta</text>
+    <text x="616" y="352" fill="#a68a91" font-size="8">Media   Baja</text>
+  </g>
+</svg>

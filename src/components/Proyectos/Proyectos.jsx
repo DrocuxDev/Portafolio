@@ -60,6 +60,17 @@ const Proyectos = () => {
                 <Icon name="externalLink" size={15} />
               </a>
             )}
+            {project.design && (
+              <a
+                className="dx-btn dx-btn--ghost project-card__link"
+                href={project.design}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Icon name="layout" size={17} /> {t.designLabel}
+                <Icon name="externalLink" size={15} />
+              </a>
+            )}
             {project.files?.map((file) => (
               <a
                 className="dx-btn dx-btn--ghost project-card__link"

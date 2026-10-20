@@ -49,13 +49,17 @@
 .project-card--erp .project-card__media {
   background: #0b1427;
 }
+.project-card--apptareas .project-card__media {
+  background: #1b1017;
+}
 .project-card--tickets .project-card__media,
 .project-card--girasol .project-card__media {
   background: #f3f4f6;
 }
 .project-card--erp .project-card__media img,
 .project-card--tickets .project-card__media img,
-.project-card--girasol .project-card__media img {
+.project-card--girasol .project-card__media img,
+.project-card--apptareas .project-card__media img {
   object-fit: contain;
 }
 

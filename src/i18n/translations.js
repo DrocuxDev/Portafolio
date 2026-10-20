@@ -118,6 +118,7 @@ export const translations = {
       intro: 'Proyectos de software y electrónica con código y archivos de diseño disponibles para explorar.',
       featuredLabel: 'Proyecto destacado',
       codeLabel: 'Ver repositorio',
+      designLabel: 'Ver diseño en Figma',
       downloadCode: 'Descargar código',
       downloadBoard: 'Descargar diseño .brd',
       contributionLabel: 'Mi aporte',
@@ -146,6 +147,13 @@ export const translations = {
           descripcion:
             'Prototipo con Arduino Uno que convierte la intensidad de luz medida por un fotoresistor en el ángulo de un servomotor. Regula dos LEDs por PWM y muestra luz, ángulo y brillo en una pantalla LCD 16×2.',
           contribution: 'Integración del circuito y programación del filtrado de lecturas, movimiento gradual del servo, control de LEDs y visualización LCD.',
+        },
+        apptareas: {
+          titulo: 'App de Tareas Android',
+          imageAlt: 'Vista previa ilustrada de tres pantallas oscuras de la app de tareas: lista, detalle y nueva tarea.',
+          descripcion:
+            'Aplicación Android para crear, editar, completar y consultar tareas. Guarda los datos localmente con Room e incluye una vista de calendario.',
+          contribution: 'Desarrollo de las pantallas de tareas y calendario, la navegación y la persistencia local en Java.',
         },
       },
     },
@@ -317,6 +325,7 @@ export const translations = {
       intro: 'Software and electronics projects with source code and design files available to explore.',
       featuredLabel: 'Featured project',
       codeLabel: 'View repository',
+      designLabel: 'View Figma design',
       downloadCode: 'Download code',
       downloadBoard: 'Download .brd design',
       contributionLabel: 'My contribution',
@@ -345,6 +354,13 @@ export const translations = {
           descripcion:
             'An Arduino Uno prototype that maps light intensity from a photoresistor to a servo angle. It drives two LEDs with PWM and shows light level, angle and brightness on a 16×2 LCD.',
           contribution: 'Circuit integration and programming for smoothed sensor readings, gradual servo movement, LED control and LCD output.',
+        },
+        apptareas: {
+          titulo: 'Android Task App',
+          imageAlt: 'Illustrated preview of three dark task app screens: list, detail and new task.',
+          descripcion:
+            'Android app for creating, editing, completing and viewing tasks. It stores data locally with Room and includes a calendar view.',
+          contribution: 'Development of the task and calendar screens, navigation and local persistence in Java.',
         },
       },
     },
