@@ -15,12 +15,12 @@ const Proyectos = () => {
     return (
       <article
         key={project.id}
-        className={`project-card${isFeatured ? ' project-card--featured' : ''}`}
+        className={`project-card project-card--${project.id}${isFeatured ? ' project-card--featured' : ''}`}
         data-reveal
         data-reveal-delay={index * 90}
       >
         <div className="project-card__media">
-          <img src={project.image} alt={copy.titulo} loading="lazy" decoding="async" width="720" height="460" />
+          <img src={project.image} alt={copy.imageAlt} loading="lazy" decoding="async" width="720" height="460" />
           <p className="project-card__state">
             <span className="status-dot" aria-hidden="true" /> {t.statusValue}
           </p>
@@ -48,15 +48,29 @@ const Proyectos = () => {
             </ul>
           </div>
 
-          <a
-            className="dx-btn dx-btn--violet project-card__link"
-            href={project.repo}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon name="github" size={17} /> {t.codeLabel}
-            <Icon name="externalLink" size={15} />
-          </a>
+          <div className="project-card__links">
+            {project.repo && (
+              <a
+                className="dx-btn dx-btn--violet project-card__link"
+                href={project.repo}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Icon name="github" size={17} /> {t.codeLabel}
+                <Icon name="externalLink" size={15} />
+              </a>
+            )}
+            {project.files?.map((file) => (
+              <a
+                className="dx-btn dx-btn--ghost project-card__link"
+                href={file.href}
+                download={file.name}
+                key={file.href}
+              >
+                <Icon name="download" size={17} /> {t[file.label]}
+              </a>
+            ))}
+          </div>
         </div>
       </article>
     );

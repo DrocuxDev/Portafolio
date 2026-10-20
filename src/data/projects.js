@@ -1,8 +1,6 @@
-import proyectoErp from '../assets/proyecto-web.svg';
-import proyectoTickets from '../assets/proyecto-datos.svg';
-
 /**
- * Proyectos reales publicados en GitHub.
+ * Proyectos reales publicados en GitHub. Los archivos descargables del
+ * prototipo de electrónica se sirven desde public/proyectos/girasol-dual.
  * Los textos (título, descripción, aporte) viven en i18n/translations.js por id.
  * No hay URL de demostración porque todavía no se ha publicado un despliegue.
  */
@@ -10,15 +8,33 @@ export const PROJECTS = [
   {
     id: 'erp',
     repo: 'https://github.com/DrocuxDev/sistema-erp-saas',
-    image: proyectoErp,
+    image: '/proyectos/erp-productos.png',
     featured: true,
     tech: ['Laravel', 'Blade', 'PHP', 'JavaScript'],
   },
   {
     id: 'tickets',
     repo: 'https://github.com/DrocuxDev/app-sistema-tickets',
-    image: proyectoTickets,
+    image: '/proyectos/tickets-dashboard.png',
     featured: false,
     tech: ['Laravel', 'Bootstrap', 'PHP', 'Blade'],
+  },
+  {
+    id: 'girasol',
+    image: '/proyectos/girasol-dual/girasol-dual.png',
+    featured: false,
+    tech: ['Arduino Uno', 'C++', 'EAGLE', 'Tinkercad'],
+    files: [
+      {
+        href: '/proyectos/girasol-dual/girasol-dual.ino',
+        name: 'girasol-dual.ino',
+        label: 'downloadCode',
+      },
+      {
+        href: '/proyectos/girasol-dual/girasol-dual-senati.brd',
+        name: 'girasol-dual-senati.brd',
+        label: 'downloadBoard',
+      },
+    ],
   },
 ];

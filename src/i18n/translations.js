@@ -115,9 +115,11 @@ export const translations = {
     proyectos: {
       kicker: '< Proyectos reales />',
       title: 'Proyectos destacados',
-      intro: 'Sistemas funcionales publicados en mi GitHub, no maquetas. Aún no hay despliegues públicos, por eso cada tarjeta enlaza al repositorio.',
+      intro: 'Proyectos de software y electrónica con código y archivos de diseño disponibles para explorar.',
       featuredLabel: 'Proyecto destacado',
       codeLabel: 'Ver repositorio',
+      downloadCode: 'Descargar código',
+      downloadBoard: 'Descargar diseño .brd',
       contributionLabel: 'Mi aporte',
       stackLabel: 'Tecnologías',
       statusLabel: 'Estado',
@@ -126,15 +128,24 @@ export const translations = {
       items: {
         erp: {
           titulo: 'Sistema ERP SaaS',
+          imageAlt: 'Catálogo de productos y precios del ERP con filtros y existencias.',
           descripcion:
             'Sistema de gestión tipo ERP: control de inventario, órdenes de compra, cotizaciones y facturación pensada para control interno (sin conexión a SUNAT).',
           contribution: 'Proyecto personal: desarrollo del backend con Laravel y de las vistas con Blade.',
         },
         tickets: {
           titulo: 'Sistema de Tickets',
+          imageAlt: 'Panel de control del sistema de tickets con métricas y estados.',
           descripcion:
             'Sistema de gestión de tickets de soporte técnico orientado a empresas de servicios IT, con flujo de atención y seguimiento de casos.',
           contribution: 'Proyecto personal: desarrollado en Laravel + Bootstrap siguiendo el flujo de soporte.',
+        },
+        girasol: {
+          titulo: 'Girasol Dual SENATI',
+          imageAlt: 'Montaje con Arduino Uno, protoboard, pantalla LCD, fotoresistor y servomotor.',
+          descripcion:
+            'Prototipo con Arduino Uno que convierte la intensidad de luz medida por un fotoresistor en el ángulo de un servomotor. Regula dos LEDs por PWM y muestra luz, ángulo y brillo en una pantalla LCD 16×2.',
+          contribution: 'Integración del circuito y programación del filtrado de lecturas, movimiento gradual del servo, control de LEDs y visualización LCD.',
         },
       },
     },
@@ -303,9 +314,11 @@ export const translations = {
     proyectos: {
       kicker: '< Real projects />',
       title: 'Featured projects',
-      intro: 'Working systems published on my GitHub, not mockups. There are no public deployments yet, so every card links to the repository.',
+      intro: 'Software and electronics projects with source code and design files available to explore.',
       featuredLabel: 'Featured project',
       codeLabel: 'View repository',
+      downloadCode: 'Download code',
+      downloadBoard: 'Download .brd design',
       contributionLabel: 'My contribution',
       stackLabel: 'Technologies',
       statusLabel: 'Status',
@@ -314,15 +327,24 @@ export const translations = {
       items: {
         erp: {
           titulo: 'SaaS ERP System',
+          imageAlt: 'ERP product and pricing catalog with filters and stock levels.',
           descripcion:
             'ERP-style management system: inventory control, purchase orders, quotations and invoicing intended for internal control (no SUNAT connection).',
           contribution: 'Personal project: backend built with Laravel and views built with Blade.',
         },
         tickets: {
           titulo: 'Ticketing System',
+          imageAlt: 'Ticketing dashboard with metrics and ticket status overview.',
           descripcion:
             'Technical support ticketing system aimed at IT service companies, with a request flow and case tracking.',
           contribution: 'Personal project: built with Laravel + Bootstrap following the support flow.',
+        },
+        girasol: {
+          titulo: 'Girasol Dual SENATI',
+          imageAlt: 'Circuit with Arduino Uno, breadboard, LCD, photoresistor and servo.',
+          descripcion:
+            'An Arduino Uno prototype that maps light intensity from a photoresistor to a servo angle. It drives two LEDs with PWM and shows light level, angle and brightness on a 16×2 LCD.',
+          contribution: 'Circuit integration and programming for smoothed sensor readings, gradual servo movement, LED control and LCD output.',
         },
       },
     },
