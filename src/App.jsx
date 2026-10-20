@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar/Navbar.jsx';
+import { MotionConfig } from 'framer-motion';
 import ScrollProgress from './components/ScrollProgress.jsx';
 import Icon from './components/icons/Icon.jsx';
 import Banner from './components/Banner/Banner.jsx';
@@ -109,9 +110,11 @@ function Portfolio() {
 
 function App() {
   return (
-    <LanguageProvider>
-      <Portfolio />
-    </LanguageProvider>
+    <MotionConfig reducedMotion="user">
+      <LanguageProvider>
+        <Portfolio />
+      </LanguageProvider>
+    </MotionConfig>
   );
 }
 

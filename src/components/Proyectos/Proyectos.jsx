@@ -1,4 +1,6 @@
 import Icon from '../icons/Icon.jsx';
+import InteractiveCard from '../effects/InteractiveCard.jsx';
+import AmbientGlow from '../effects/AmbientGlow.jsx';
 import { useLanguage } from '../../hooks/useLanguage.js';
 import { translations } from '../../i18n/translations.js';
 import { PROFILE } from '../../data/portfolio.js';
@@ -6,7 +8,8 @@ import { PROJECTS } from '../../data/projects.js';
 import './Proyectos.css';
 
 const movePreview = (event) => {
-  if (event.pointerType === 'touch') return;
+  if (event.pointerType === 'touch'
+    || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const bounds = event.currentTarget.getBoundingClientRect();
   const x = Math.min(100, Math.max(0, ((event.clientX - bounds.left) / bounds.width) * 100));
@@ -28,11 +31,11 @@ const Proyectos = () => {
   const renderCard = (project, index) => {
     const copy = t.items[project.id];
     return (
-      <article
+      <InteractiveCard
         key={project.id}
         className={`project-card project-card--${project.id}`}
-        data-reveal
-        data-reveal-delay={index * 90}
+        delay={index * 0.08}
+        tilt={1.5}
       >
         <div
           className="project-card__media"
@@ -100,12 +103,13 @@ const Proyectos = () => {
             ))}
           </div>
         </div>
-      </article>
+      </InteractiveCard>
     );
   };
 
   return (
     <section id="proyectos" className="section projects">
+      <AmbientGlow />
       <div className="section-wrap">
         <div className="section-heading" data-reveal>
           <span className="section-kicker">{t.kicker}</span>

@@ -17,6 +17,7 @@ export const translations = {
       menu: 'Menú',
     },
     hero: {
+      carousel: 'carrusel',
       eyebrow: '// Hola, soy',
       badge: 'Nivel: en formación · junior',
       role: 'Desarrollador Full Stack | Web & Software',
@@ -36,6 +37,8 @@ export const translations = {
       scene: 'Mostrar imagen',
     },
     perfil: {
+      projectsStat: 'Proyectos para explorar',
+      certificatesStat: 'Certificados obtenidos',
       kicker: '< Sobre mí />',
       title: 'Sobre mí',
       intro: 'Ambición, enfoque y dedicación: así construyo mi camino dentro del desarrollo de software.',
@@ -223,6 +226,7 @@ export const translations = {
       menu: 'Menu',
     },
     hero: {
+      carousel: 'carousel',
       eyebrow: '// Hi, I am',
       badge: 'Level: in training · junior',
       role: 'Full Stack Developer | Web & Software',
@@ -242,6 +246,8 @@ export const translations = {
       scene: 'Show image',
     },
     perfil: {
+      projectsStat: 'Projects to explore',
+      certificatesStat: 'Certificates earned',
       kicker: '< About me />',
       title: 'About me',
       intro: 'Ambition, focus and dedication: this is how I build my path in software development.',

@@ -1,4 +1,6 @@
 import Icon from '../icons/Icon.jsx';
+import InteractiveCard from '../effects/InteractiveCard.jsx';
+import AmbientGlow from '../effects/AmbientGlow.jsx';
 import { useLanguage } from '../../hooks/useLanguage.js';
 import { translations } from '../../i18n/translations.js';
 import { STACK_GROUPS, LEARNING } from '../../data/stack.js';
@@ -17,6 +19,7 @@ const Habilidades = () => {
 
   return (
     <section id="tech-stack" className="section skills">
+      <AmbientGlow />
       <div className="section-wrap">
         <div className="section-heading" data-reveal>
           <span className="section-kicker">{t.kicker}</span>
@@ -29,11 +32,10 @@ const Habilidades = () => {
 
         <div className="skills__grid">
           {STACK_GROUPS.map((group, index) => (
-            <article
+            <InteractiveCard
               key={group.id}
               className={`skill-card skills__group skills__group--${group.accent}`}
-              data-reveal
-              data-reveal-delay={index * 90}
+              delay={index * 0.08}
             >
               <header className="skills__group-head">
                 <span className="skills__group-icon">
@@ -56,7 +58,7 @@ const Habilidades = () => {
                   </li>
                 ))}
               </ul>
-            </article>
+            </InteractiveCard>
           ))}
         </div>
 
@@ -64,7 +66,7 @@ const Habilidades = () => {
           <Icon name="shield" size={16} /> {t.note}
         </p>
 
-        <div className="skills__certificates" data-reveal>
+        <div id="certificados" className="skills__certificates" data-reveal>
           <div className="skills__certificates-heading">
             <span className="section-kicker">{t.certificates.kicker}</span>
             <h3>{t.certificates.title}</h3>

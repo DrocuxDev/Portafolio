@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Icon from '../icons/Icon.jsx';
+import InteractiveCard from '../effects/InteractiveCard.jsx';
+import AmbientGlow from '../effects/AmbientGlow.jsx';
 import { useLanguage } from '../../hooks/useLanguage.js';
 import { useCvAvailable } from '../../hooks/useCvAvailable.js';
 import { translations } from '../../i18n/translations.js';
@@ -44,6 +46,7 @@ const Contacto = () => {
 
   return (
     <section id="contacto" className="section contact">
+      <AmbientGlow />
       <div className="section-wrap">
         <div className="section-heading" data-reveal>
           <span className="section-kicker">{t.kicker}</span>
@@ -106,7 +109,7 @@ const Contacto = () => {
             )}
           </div>
 
-          <div className="contact-panel" data-reveal data-reveal-delay="120">
+          <InteractiveCard className="contact-panel" delay={0.12} tilt={0}>
             <h3 className="contact__form-title">{t.formTitle}</h3>
 
             <form className="contact__form" onSubmit={handleSubmit}>
@@ -181,7 +184,7 @@ const Contacto = () => {
                 </>
               )}
             </p>
-          </div>
+          </InteractiveCard>
         </div>
       </div>
     </section>

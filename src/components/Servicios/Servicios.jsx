@@ -1,4 +1,6 @@
 import Icon from '../icons/Icon.jsx';
+import InteractiveCard from '../effects/InteractiveCard.jsx';
+import AmbientGlow from '../effects/AmbientGlow.jsx';
 import { useLanguage } from '../../hooks/useLanguage.js';
 import { translations } from '../../i18n/translations.js';
 import './Servicios.css';
@@ -9,6 +11,7 @@ const Servicios = () => {
 
   return (
     <section id="servicios" className="section services">
+      <AmbientGlow />
       <div className="section-wrap">
         <div className="services__head">
           <div className="section-heading" data-reveal>
@@ -23,11 +26,10 @@ const Servicios = () => {
 
         <div className="services__grid">
           {t.items.map((service, index) => (
-            <article
+            <InteractiveCard
               key={service.title}
               className="service-card"
-              data-reveal
-              data-reveal-delay={index * 80}
+              delay={index * 0.06}
             >
               <span className="service-card__index" aria-hidden="true">
                 {String(index + 1).padStart(2, '0')}
@@ -37,7 +39,7 @@ const Servicios = () => {
               </span>
               <h3>{service.title}</h3>
               <p>{service.text}</p>
-            </article>
+            </InteractiveCard>
           ))}
         </div>
 

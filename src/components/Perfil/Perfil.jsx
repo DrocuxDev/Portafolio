@@ -1,4 +1,9 @@
 import Icon from '../icons/Icon.jsx';
+import { Award, FolderCode } from 'lucide-react';
+import InteractiveCard from '../effects/InteractiveCard.jsx';
+import AmbientGlow from '../effects/AmbientGlow.jsx';
+import { PROJECTS } from '../../data/projects.js';
+import { CERTIFICATES } from '../../data/certificates.js';
 import { useLanguage } from '../../hooks/useLanguage.js';
 import { translations } from '../../i18n/translations.js';
 import './Perfil.css';
@@ -9,6 +14,7 @@ const Perfil = () => {
 
   return (
     <section id="sobre-mi" className="section profile">
+      <AmbientGlow />
       <div className="section-wrap">
         <div className="section-heading" data-reveal>
           <span className="section-kicker">{t.kicker}</span>
@@ -17,7 +23,7 @@ const Perfil = () => {
         </div>
 
         <div className="profile__grid">
-          <article className="profile-card profile__about" data-reveal>
+          <InteractiveCard className="profile-card profile__about">
             <p className="profile__lead">{t.p1}</p>
             <p className="profile__text">{t.p2}</p>
             <ul className="profile__keywords">
@@ -25,10 +31,10 @@ const Perfil = () => {
                 <li key={keyword}>{keyword}</li>
               ))}
             </ul>
-          </article>
+          </InteractiveCard>
 
           <div className="profile__side">
-            <article className="profile-card profile__block" data-reveal data-reveal-delay="90">
+            <InteractiveCard className="profile-card profile__block profile__facts" delay={0.08}>
               <h3 className="profile__heading">
                 <span className="profile__heading-icon">
                   <Icon name="user" size={18} />
@@ -43,9 +49,9 @@ const Perfil = () => {
                   </div>
                 ))}
               </dl>
-            </article>
+            </InteractiveCard>
 
-            <article className="profile-card profile__block" data-reveal data-reveal-delay="150">
+            <InteractiveCard className="profile-card profile__block profile__focus-card" delay={0.16}>
               <h3 className="profile__heading">
                 <span className="profile__heading-icon">
                   <Icon name="spark" size={18} />
@@ -59,10 +65,21 @@ const Perfil = () => {
                   </li>
                 ))}
               </ul>
-            </article>
+            </InteractiveCard>
           </div>
 
-          <article className="profile-card profile__timeline" data-reveal>
+          <InteractiveCard className="profile-card profile__stat profile__stat--projects" delay={0.08}>
+            <FolderCode size={24} aria-hidden="true" />
+            <strong className="profile__stat-value">{String(PROJECTS.length).padStart(2, '0')}</strong>
+            <a href="#proyectos">{t.projectsStat} <Icon name="arrowUpRight" size={16} /></a>
+          </InteractiveCard>
+          <InteractiveCard className="profile-card profile__stat profile__stat--certificates" delay={0.16}>
+            <Award size={24} aria-hidden="true" />
+            <strong className="profile__stat-value">{String(CERTIFICATES.length).padStart(2, '0')}</strong>
+            <a href="#certificados">{t.certificatesStat} <Icon name="arrowUpRight" size={16} /></a>
+          </InteractiveCard>
+
+          <InteractiveCard className="profile-card profile__timeline" tilt={1}>
             <h3 className="profile__heading">
               <span className="profile__heading-icon">
                 <Icon name="graduation" size={18} />
@@ -78,7 +95,7 @@ const Perfil = () => {
                 </li>
               ))}
             </ol>
-          </article>
+          </InteractiveCard>
         </div>
       </div>
     </section>

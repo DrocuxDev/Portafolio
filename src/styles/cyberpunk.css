@@ -165,9 +165,9 @@ body::before {
 .contact-panel {
   transition: transform var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
 }
-.skill-card:hover,
-.project-card:hover,
-.service-card:hover {
+.skill-card:not(.interactive-card):hover,
+.project-card:not(.interactive-card):hover,
+.service-card:not(.interactive-card):hover {
   transform: translateY(-5px);
   border-color: rgba(139, 44, 255, 0.5);
   box-shadow: var(--shadow-md), 0 0 30px rgba(139, 44, 255, 0.2);

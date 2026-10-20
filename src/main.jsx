@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/utilities.css';
 import './index.css';
 import './styles/cyberpunk.css';
 import App from './App.jsx';
