@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 import Icon from '../icons/Icon.jsx';
 import InteractiveCard from '../effects/InteractiveCard.jsx';
 import AmbientGlow from '../effects/AmbientGlow.jsx';
@@ -15,33 +17,55 @@ const Contacto = () => {
   const t = translations[lang].contacto;
   const cvAvailable = useCvAvailable();
   const [form, setForm] = useState(EMPTY_FORM);
-  const [mailOpened, setMailOpened] = useState(false);
+  const [cargando, setCargando] = useState(false);
+
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setForm((previous) => ({ ...previous, [name]: value }));
   };
 
-  /**
-   * Sin backend: se prepara un enlace mailto: con asunto y cuerpo codificados.
-   * El navegador abre el cliente de correo del visitante; no se envía nada solo.
-   */
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const subject = form.asunto.trim() || `${PROFILE.brand} · ${form.nombre.trim()}`;
-    const body = [
-      form.mensaje.trim(),
-      '',
-      '—',
-      form.nombre.trim(),
-      form.email.trim(),
-    ]
-      .filter(Boolean)
-      .join('\n');
+    setCargando(true);
 
-    const mailto = `mailto:${PROFILE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setMailOpened(true);
+    const templateParams = {
+      nombre: form.nombre.trim(),
+      email: form.email.trim(),
+      asunto: form.asunto.trim(),
+      mensaje: form.mensaje.trim(),
+    };
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
+      Swal.fire({
+        icon: 'success',
+        title: '¡Mensaje enviado!',
+        text: 'Gracias por contactarme. Te responderé pronto.',
+        confirmButtonColor: '#7c3aed',
+      });
+
+      setForm(EMPTY_FORM);
+    } catch (error) {
+      console.error('Error al enviar el correo:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al enviar',
+        text: 'No se pudo enviar el mensaje. Inténtalo de nuevo más tarde.',
+        confirmButtonColor: '#7c3aed',
+      });
+    } finally {
+      setCargando(false);
+    }
   };
 
   return (
@@ -124,6 +148,7 @@ const Contacto = () => {
                   placeholder={t.namePh}
                   autoComplete="name"
                   required
+                  disabled={cargando}
                 />
               </div>
 
@@ -138,6 +163,7 @@ const Contacto = () => {
                   placeholder={t.emailPh}
                   autoComplete="email"
                   required
+                  disabled={cargando}
                 />
               </div>
 
@@ -150,6 +176,7 @@ const Contacto = () => {
                   value={form.asunto}
                   onChange={handleChange}
                   placeholder={t.subjectPh}
+                  disabled={cargando}
                 />
               </div>
 
@@ -164,11 +191,12 @@ const Contacto = () => {
                   placeholder={t.messagePh}
                   aria-describedby="contact-mailto-note"
                   required
+                  disabled={cargando}
                 />
               </div>
 
-              <button type="submit" className="dx-btn dx-btn--primary contact__submit">
-                {t.submit} <Icon name="send" size={17} />
+              <button type="submit" className="dx-btn dx-btn--primary contact__submit" disabled={cargando}>
+                {cargando ? 'Enviando...' : t.submit} <Icon name="send" size={17} />
               </button>
             </form>
 
@@ -177,12 +205,7 @@ const Contacto = () => {
             </p>
 
             <p className="contact__status" role="status" aria-live="polite">
-              {mailOpened && (
-                <>
-                  {t.openedNote}{' '}
-                  <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>
-                </>
-              )}
+              {cargando && 'Enviando mensaje...'}
             </p>
           </InteractiveCard>
         </div>
