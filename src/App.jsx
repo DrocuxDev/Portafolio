@@ -3,10 +3,11 @@ import { MotionConfig } from 'framer-motion';
 import ScrollProgress from './components/ScrollProgress.jsx';
 import Icon from './components/icons/Icon.jsx';
 import Banner from './components/Banner/Banner.jsx';
-import Perfil from './components/Perfil/Perfil.jsx';
-import Habilidades from './components/Habilidades/Habilidades.jsx';
 import Proyectos from './components/Proyectos/Proyectos.jsx';
 import Servicios from './components/Servicios/Servicios.jsx';
+import Habilidades from './components/Habilidades/Habilidades.jsx';
+import Perfil from './components/Perfil/Perfil.jsx';
+import Certificados from './components/Certificados/Certificados.jsx';
 import Contacto from './components/Contacto/Contacto.jsx';
 import { LanguageProvider } from './context/LanguageProvider.jsx';
 import { useLanguage } from './hooks/useLanguage.js';
@@ -97,10 +98,11 @@ function Portfolio() {
       <Navbar />
       <main id="contenido" tabIndex={-1}>
         <Banner />
-        <Perfil />
-        <Habilidades />
         <Proyectos />
         <Servicios />
+        <Habilidades />
+        <Perfil />
+        <Certificados />
         <Contacto />
       </main>
       <Footer />

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Icon from '../icons/Icon.jsx';
 import { useLanguage } from '../../hooks/useLanguage.js';
+import { useCvAvailable } from '../../hooks/useCvAvailable.js';
 import { translations } from '../../i18n/translations.js';
 import { PROFILE, NAV_SECTIONS } from '../../data/portfolio.js';
 import { useActiveSection } from '../../hooks/useActiveSection.js';
@@ -14,6 +15,7 @@ const Navbar = () => {
   const { lang, toggle } = useLanguage();
   const t = translations[lang].nav;
   const a11y = translations[lang].a11y;
+  const cvAvailable = useCvAvailable();
   const activeSection = useActiveSection(SECTION_IDS);
   const panelRef = useRef(null);
   const toggleRef = useRef(null);
@@ -79,13 +81,24 @@ const Navbar = () => {
             </a>
           ))}
 
+          {cvAvailable && (
+            <a
+              className="navbar-cv-btn"
+              href={PROFILE.cvPath}
+              download
+              onClick={closeMenu}
+            >
+              <Icon name="download" size={13} /> CV
+            </a>
+          )}
+
           <button
             className="lang-toggle"
             type="button"
             onClick={toggle}
             aria-label={a11y.langSwitch}
           >
-            <Icon name="globe" size={15} />
+            <Icon name="globe" size={14} />
             <span className={lang === 'es' ? 'is-active' : ''}>ES</span>
             <span aria-hidden="true">/</span>
             <span className={lang === 'en' ? 'is-active' : ''}>EN</span>
