@@ -49,9 +49,9 @@ const Contacto = () => {
 
       Swal.fire({
         icon: 'success',
-        title: '¡Mensaje enviado!',
-        text: 'Gracias por contactarme. Te responderé pronto.',
-        confirmButtonColor: '#7c3aed',
+        title: t.alertSuccessTitle,
+        text: t.alertSuccessText,
+        confirmButtonColor: '#38bdf8',
       });
 
       setForm(EMPTY_FORM);
@@ -59,9 +59,9 @@ const Contacto = () => {
       console.error('Error al enviar el correo:', error);
       Swal.fire({
         icon: 'error',
-        title: 'Error al enviar',
-        text: 'No se pudo enviar el mensaje. Inténtalo de nuevo más tarde.',
-        confirmButtonColor: '#7c3aed',
+        title: t.alertErrorTitle,
+        text: t.alertErrorText,
+        confirmButtonColor: '#38bdf8',
       });
     } finally {
       setCargando(false);
@@ -196,7 +196,7 @@ const Contacto = () => {
               </div>
 
               <button type="submit" className="dx-btn dx-btn--primary contact__submit" disabled={cargando}>
-                {cargando ? 'Enviando...' : t.submit} <Icon name="send" size={17} />
+                {cargando ? t.sending : t.submit} <Icon name="send" size={17} />
               </button>
             </form>
 
@@ -205,7 +205,7 @@ const Contacto = () => {
             </p>
 
             <p className="contact__status" role="status" aria-live="polite">
-              {cargando && 'Enviando mensaje...'}
+              {cargando && t.sending}
             </p>
           </InteractiveCard>
         </div>

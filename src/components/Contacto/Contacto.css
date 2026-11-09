@@ -1,128 +1,151 @@
-/* ===== Contacto ===== */
+/* ============================================================
+   DrocuxDev · Contacto
+   ============================================================ */
+
 .contact {
   position: relative;
-  background: linear-gradient(180deg, var(--bg-2), var(--bg));
+  border-top: 1px solid var(--border-subtle);
 }
 
 .contact__grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
+  gap: clamp(1.8rem, 4vw, 3.5rem);
   align-items: start;
   min-width: 0;
 }
 
-/* ---- Columna informativa ---- */
+/* Columna de Información */
 .contact__info-title {
-  font-size: clamp(1.3rem, 2.6vw, 1.6rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
+
 .contact__info-desc {
-  max-width: 420px;
+  max-width: 440px;
   margin: 0.8rem 0 2rem;
   color: var(--text-dim);
-  font-size: 0.93rem;
-  line-height: 1.8;
+  font-size: 0.92rem;
+  line-height: 1.75;
 }
 
 .contact__items {
   display: grid;
-  gap: 1.1rem;
+  gap: 1.15rem;
 }
+
 .contact__items li {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 0.95rem;
 }
+
 .contact__icon {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   flex-shrink: 0;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: var(--r-md);
-  background: var(--violet-a10);
-  color: var(--magenta);
+  background: var(--surface-hover);
+  color: var(--accent);
 }
+
 .contact__label {
   display: block;
   color: var(--text-mute);
-  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
 .contact__items a,
 .contact__items p {
   color: var(--text);
   font-size: 0.92rem;
   font-weight: 600;
   text-decoration: none;
+  transition: color var(--t-fast);
   overflow-wrap: anywhere;
 }
 .contact__items a:hover {
-  color: var(--cyan);
+  color: var(--accent);
 }
+
 .contact__cv {
   margin-top: 2rem;
 }
 
-/* ---- Panel del formulario ---- */
+/* Panel del Formulario */
 .contact-panel {
-  padding: clamp(1.4rem, 3vw, 2.1rem);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--r-lg);
-  background: linear-gradient(160deg, var(--surface), var(--bg-2));
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--surface);
   box-shadow: var(--shadow-md);
   min-width: 0;
+  transition: border-color var(--t-base);
 }
+.contact-panel:hover {
+  border-color: var(--border-accent);
+}
+
 .contact__form-title {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.35rem;
   font-size: 1.1rem;
   font-weight: 700;
+  color: var(--text);
 }
+
 .contact__form {
   display: grid;
-  gap: 1.05rem;
+  gap: 1.1rem;
 }
+
 .contact__field {
   display: grid;
   gap: 0.45rem;
 }
+
 .contact__field label {
   color: var(--text-dim);
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 600;
 }
+
 .contact__field input,
 .contact__field textarea {
   width: 100%;
-  padding: 0.85rem 0.95rem;
-  border: 1px solid var(--line-soft);
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--border);
   border-radius: var(--r-sm);
-  background: rgba(3, 6, 17, 0.55);
+  background: var(--bg);
   color: var(--text);
-  font-size: 0.92rem;
-  transition: border-color var(--t-base), box-shadow var(--t-base);
+  font-size: 0.9rem;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
 }
 .contact__field textarea {
   resize: vertical;
-  min-height: 132px;
+  min-height: 120px;
 }
 .contact__field input::placeholder,
 .contact__field textarea::placeholder {
   color: var(--text-mute);
-  opacity: 0.75;
+  opacity: 0.6;
 }
 .contact__field input:focus,
 .contact__field textarea:focus {
   outline: none;
-  border-color: var(--cyan);
-  box-shadow: 0 0 0 3px rgba(0, 216, 255, 0.14);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-a20);
 }
 
 .contact__submit {
-  margin-top: 0.2rem;
+  margin-top: 0.35rem;
+  width: 100%;
 }
 
 .contact__note {
@@ -132,16 +155,16 @@
   margin-top: 1.1rem;
   color: var(--text-mute);
   font-size: 0.78rem;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 .contact__note .icon-svg {
-  margin-top: 0.1rem;
-  color: var(--cyan);
+  margin-top: 0.15rem;
+  color: var(--accent);
   flex-shrink: 0;
 }
 
 .contact__status {
-  margin-top: 0.8rem;
+  margin-top: 0.85rem;
   color: var(--green);
   font-size: 0.82rem;
   line-height: 1.6;
@@ -150,11 +173,13 @@
   display: none;
 }
 .contact__status a {
-  color: var(--cyan);
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 @media (max-width: 860px) {
   .contact__grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 }
