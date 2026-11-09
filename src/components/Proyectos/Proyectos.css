@@ -1,163 +1,243 @@
-/* ===== Proyectos ===== */
+/* ============================================================
+   DrocuxDev · Sección Proyectos (Mini Casos de Estudio)
+   Estructura: Problema, Solución, Rol, Tecnologías y Resultado
+   ============================================================ */
+
 .projects {
   position: relative;
-  background: linear-gradient(180deg, var(--bg-2), var(--bg));
+  border-top: 1px solid var(--border-subtle);
 }
 
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
-.project-card {
+.projects__list {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--r-lg);
-  background: linear-gradient(160deg, var(--surface), var(--bg-2));
+  gap: clamp(3rem, 6vw, 4.5rem);
 }
 
-.project-card__media {
-  --preview-x: 50%;
-  --preview-y: 50%;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 2 / 1;
-  background: linear-gradient(150deg, #0a0f1f, #05070f);
-}
-.project-card__media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: var(--preview-x) var(--preview-y);
-  transform-origin: var(--preview-x) var(--preview-y);
-  transition: transform var(--t-slow);
-}
-.project-card--erp .project-card__media {
-  background: #0b1427;
-}
-.project-card--apptareas .project-card__media {
-  background: #1b1017;
-}
-.project-card--tickets .project-card__media,
-.project-card--girasol .project-card__media {
-  background: #f3f4f6;
-}
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .project-card__media:hover img {
-    transform: scale(1.3);
-  }
+/* Ancla con scroll-margin por header sticky */
+[id^='proyecto-'] {
+  scroll-margin-top: calc(72px + 1.8rem);
 }
 
-.project-card__state {
-  position: absolute;
-  left: 0.9rem;
-  bottom: 0.9rem;
-  display: inline-flex;
+/* Tarjeta de Caso de Estudio */
+.case-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.6rem, 3.2vw, 2.4rem);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform var(--t-base);
+}
+.case-card:hover {
+  border-color: var(--border-accent);
+}
+
+/* Resaltado temporal al navegar desde el carrusel o hash directo */
+.case-card.is-highlighted {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px var(--accent), 0 0 32px -4px rgba(56, 189, 248, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+.case-card__header {
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.case-card__meta {
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.75rem;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--r-pill);
-  background: rgba(3, 6, 17, 0.82);
-  backdrop-filter: blur(6px);
-  color: var(--text-dim);
-  font-size: 0.74rem;
-  font-weight: 600;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
 }
 
-.project-card__body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  padding: clamp(1.4rem, 2.6vw, 2rem);
-  flex: 1;
-}
-.project-card__label {
+.case-card__index {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  color: var(--text-mute);
+}
+
+.case-card__category {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--accent);
 }
-.project-card__title {
-  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+
+.case-card__title {
+  font-size: clamp(1.4rem, 2.6vw, 1.95rem);
   font-weight: 700;
-}
-.project-card__desc {
-  color: var(--text-dim);
-  font-size: 0.93rem;
-  line-height: 1.75;
-}
-.project-card__contribution {
-  padding: 0.75rem 0.9rem;
-  border: 1px solid var(--line-soft);
-  border-left: 2px solid var(--violet);
-  border-radius: 0 var(--r-sm) var(--r-sm) 0;
-  background: rgba(139, 44, 255, 0.06);
-  color: var(--text-dim);
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-.project-card__contribution strong {
+  letter-spacing: -0.02em;
   color: var(--text);
 }
 
-.project-card__stack {
-  display: flex;
-  flex-wrap: wrap;
+/* Grilla de Contenido: Visual vs Narrativa */
+.case-card__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.8rem, 3.5vw, 2.8rem);
+  align-items: start;
+}
+
+/* Columna Visual */
+.case-card__visual {
+  position: sticky;
+  top: 104px;
+}
+
+.case-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #000;
+}
+.case-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform var(--t-slow);
+}
+.case-card:hover .case-card__media img {
+  transform: scale(1.02);
+}
+
+.case-card__status {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.85rem;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.2rem;
-}
-.project-card__stack-label {
-  color: var(--text-mute);
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  background: rgba(3, 6, 17, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--text-dim);
   font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* Columna Narrativa (Puntos del Caso) */
+.case-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.case-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.case-point {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.case-point__label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-.project-card__stack ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  color: var(--text-mute);
 }
 
-.project-card__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: auto;
-}
-.project-card__link {
-  align-self: flex-start;
-}
-.project-card__stack {
-  margin-bottom: 0.6rem;
+.case-point__text {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
+/* Resalte de Resultado */
+.case-point--highlight {
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  background: rgba(56, 189, 248, 0.04);
+}
+.case-point--highlight .case-point__label {
+  color: var(--accent);
+}
+.case-point--highlight .case-point__text {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Footer de la Tarjeta */
+.case-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.case-card__stack ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.case-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Enlace a más repositorios */
 .projects__more {
-  margin-top: 2.2rem;
+  margin-top: 3rem;
   text-align: center;
 }
 .projects__more a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--cyan);
+  color: var(--accent);
   font-size: 0.92rem;
-  font-weight: 700;
-  text-decoration: none;
+  font-weight: 600;
+  transition: opacity var(--t-fast);
 }
 .projects__more a:hover {
   text-decoration: underline;
+  opacity: 0.85;
 }
 
+/* ============================================================
+   Responsive (Tablet y Mobile 360px+)
+   ============================================================ */
 @media (max-width: 900px) {
-  .projects__grid {
+  .case-card__content {
     grid-template-columns: 1fr;
+  }
+  .case-card__visual {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .case-card {
+    padding: 1.25rem;
+  }
+  .case-card__title {
+    font-size: 1.35rem;
+  }
+  .case-card__links {
+    flex-direction: column;
+  }
+  .case-card__links .dx-btn {
+    width: 100%;
   }
 }

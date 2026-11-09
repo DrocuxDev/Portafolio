@@ -1,28 +1,27 @@
 /**
- * Stack tecnológico agrupado. Las claves coinciden con los títulos y notas
- * definidos en i18n/translations.js, así que añadir una tecnología solo
- * requiere agregar su nombre aquí y su nota en las traducciones.
+ * Stack tecnológico enfocado y depurado.
+ * Tecnologías que Alejandro utiliza a diario en producción y desarrollo real.
  */
 export const STACK_GROUPS = [
   {
     id: 'frontend',
     icon: 'layout',
-    accent: 'cyan',
-    items: ['React', 'JavaScript', 'HTML5', 'CSS3'],
+    accent: 'accent',
+    items: ['React', 'JavaScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'Vite'],
   },
   {
     id: 'backend',
     icon: 'database',
-    accent: 'violet',
-    items: ['Laravel', 'PHP', 'Python', 'Java'],
+    accent: 'accent',
+    items: ['Laravel', 'PHP', 'Python', 'MySQL', 'REST APIs'],
   },
   {
     id: 'tooling',
     icon: 'cpu',
-    accent: 'green',
-    items: ['Vite', 'Bootstrap', 'Tailwind CSS', 'Git'],
+    accent: 'accent',
+    items: ['Git', 'GitHub', 'Postman', 'Linux / Bash', 'Vercel'],
   },
 ];
 
-/** Tecnologías que se están aprendiendo actualmente (etiqueta honesta). */
-export const LEARNING = ['Python', 'Java', 'Tailwind CSS'];
+/** Tecnologías de profundización continua */
+export const LEARNING = ['Python'];
