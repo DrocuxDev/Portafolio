@@ -35,11 +35,6 @@ const Banner = () => {
           animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
         >
-          <motion.p className="hero__badge" variants={fadeVariants}>
-            <span className="status-dot" aria-hidden="true" />
-            <span>{t.badge}</span>
-          </motion.p>
-
           <motion.p className="hero__greeting" variants={fadeVariants}>
             {t.greeting}
           </motion.p>

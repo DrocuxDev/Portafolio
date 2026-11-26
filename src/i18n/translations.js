@@ -18,7 +18,6 @@ export const translations = {
       "menu": "Menú"
     },
     "hero": {
-      "badge": "Disponible para proyectos freelance",
       "greeting": "Hola, soy",
       "role": "Desarrollador Full Stack · ERP, SaaS y Automatizaciones",
       "subheadline": "Software empresarial robusto y escalable con React, Laravel y Python.",
@@ -251,7 +250,6 @@ export const translations = {
       "menu": "Menu"
     },
     "hero": {
-      "badge": "Available for freelance projects",
       "greeting": "Hi, I'm",
       "role": "Full Stack Developer · ERP, SaaS & Automations",
       "subheadline": "Robust, scalable business software built with React, Laravel, and Python.",

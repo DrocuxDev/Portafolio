@@ -62,20 +62,6 @@
   padding-block: clamp(3rem, 8vh, 6rem);
 }
 
-.hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: clamp(1.25rem, 3vh, 2rem);
-  padding: 0.3rem 0.85rem;
-  border: 1px solid var(--border);
-  border-radius: var(--r-pill);
-  background: rgba(3, 6, 17, 0.35);
-  color: var(--text-dim);
-  font-size: 0.76rem;
-  font-weight: 500;
-}
-
 .hero__greeting {
   color: var(--text);
   font-size: clamp(1.25rem, 2.1vw, 1.75rem);
@@ -235,10 +221,6 @@
     clip-path: polygon(0 3.5rem, 100% 0, 100% 100%, 0 100%);
   }
 
-  .hero__badge {
-    justify-self: start;
-    margin-bottom: 1rem;
-  }
   .hero__name {
     font-size: clamp(2.2rem, 9vw, 3rem);
   }
@@ -252,7 +234,7 @@
   /* Iconos sociales apilados a la derecha */
   .hero__actions {
     grid-column: 2;
-    grid-row: 1 / span 6;
+    grid-row: 1 / span 4;
     align-self: end;
     margin-top: 0;
   }
@@ -265,11 +247,5 @@
   }
   .hero__cta {
     display: none;
-  }
-}
-
-@media (max-width: 380px) {
-  .hero__badge {
-    font-size: 0.7rem;
   }
 }
