@@ -98,10 +98,10 @@ function Portfolio() {
       <Navbar />
       <main id="contenido" tabIndex={-1}>
         <Banner />
+        <Perfil />
         <Proyectos />
         <Servicios />
         <Habilidades />
-        <Perfil />
         <Certificados />
         <Contacto />
       </main>

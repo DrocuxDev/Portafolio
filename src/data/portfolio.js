@@ -4,6 +4,7 @@
  */
 export const PROFILE = {
   brand: 'DrocuxDev',
+  displayName: 'Alejandro Cruz',
   firstName: 'Alejandro Alfredo',
   lastName: 'Cruz Llocya',
   role: 'Desarrollador Full Stack | ERP, SaaS & Automatizaciones',
@@ -19,10 +20,10 @@ export const PROFILE = {
 /** Secciones del sitio, en orden documental, para la navegación por anclas. */
 export const NAV_SECTIONS = [
   { id: 'inicio', label: 'inicio' },
+  { id: 'sobre-mi', label: 'perfil' },
   { id: 'proyectos', label: 'proyectos' },
   { id: 'servicios', label: 'servicios' },
   { id: 'tech-stack', label: 'habilidades' },
-  { id: 'sobre-mi', label: 'perfil' },
   { id: 'certificados', label: 'certificados' },
   { id: 'contacto', label: 'contacto' },
 ];

@@ -3,25 +3,46 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(3, 6, 17, 0.75);
-  border-bottom: 1px solid var(--border-subtle);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: background var(--t-base), border-color var(--t-base);
+  height: var(--nav-h);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background var(--t-base), border-color var(--t-base), backdrop-filter var(--t-base);
 }
 .navbar-portfolio.is-scrolled {
-  background: rgba(3, 6, 17, 0.92);
+  background: rgba(3, 6, 17, 0.9);
   border-bottom-color: var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .navbar-portfolio__inner {
   width: min(var(--maxw), 100% - (var(--gutter) * 2));
+  height: 100%;
   margin-inline: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 0.85rem 0;
+}
+
+/* Botón "Contacto" tipo pill (CONTACT ME del diseño) */
+.navbar-links a.navbar-contact-btn {
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: #030611;
+  font-weight: 700;
+  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+}
+.navbar-links a.navbar-contact-btn::after {
+  display: none;
+}
+.navbar-links a.navbar-contact-btn:hover,
+.navbar-links a.navbar-contact-btn[aria-current='true'] {
+  background: var(--accent-hover);
+  color: #030611;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.3);
 }
 
 .navbar-logo {
@@ -185,6 +206,12 @@ body.nav-open {
   .navbar-cv-btn {
     align-self: flex-start;
     margin-top: 0.75rem;
+  }
+  .navbar-links a.navbar-contact-btn {
+    align-self: flex-start;
+    margin-top: 0.75rem;
+    padding: 0.55rem 1.25rem;
+    border-bottom: 0;
   }
   .navbar-links .lang-toggle {
     align-self: flex-start;

@@ -51,6 +51,7 @@
   --gutter: clamp(1.25rem, 5vw, 3rem);
   --section-y: clamp(4.5rem, 9vw, 7.5rem);
   --maxw: 1140px;
+  --nav-h: 66px;
 
   /* --- Radios de Borde --- */
   --r-sm: 6px;

@@ -70,7 +70,7 @@ const Navbar = () => {
           aria-label={t.menu}
           ref={panelRef}
         >
-          {NAV_SECTIONS.map((section) => (
+          {NAV_SECTIONS.filter((section) => !['inicio', 'contacto'].includes(section.id)).map((section) => (
             <a
               key={section.id}
               href={`#${section.id}`}
@@ -80,6 +80,15 @@ const Navbar = () => {
               {t[section.label]}
             </a>
           ))}
+
+          <a
+            className="navbar-contact-btn"
+            href="#contacto"
+            aria-current={activeSection === 'contacto' ? 'true' : undefined}
+            onClick={closeMenu}
+          >
+            {t.contacto}
+          </a>
 
           {cvAvailable && (
             <a

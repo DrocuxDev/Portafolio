@@ -18,79 +18,37 @@ export const translations = {
       "menu": "Menú"
     },
     "hero": {
-      "eyebrow": "Alejandro Cruz · DrocuxDev",
-      "badge": "Disponible para proyectos freelance y desarrollo Full Stack",
-      "role": "Desarrollador Full Stack | ERP, SaaS y Automatizaciones",
-      "headline": "Construyo sistemas ERP, plataformas SaaS y automatizaciones a medida.",
+      "badge": "Disponible para proyectos freelance",
+      "greeting": "Hola, soy",
+      "role": "Desarrollador Full Stack · ERP, SaaS y Automatizaciones",
       "subheadline": "Software empresarial robusto y escalable con React, Laravel y Python.",
-      "ctaProjects": "Ver proyectos destacados",
-      "ctaContact": "Hablemos de tu proyecto",
-      "carousel": {
-        "regionLabel": "Carrusel de proyectos destacados",
-        "slideLabel": "de",
-        "viewProject": "Ver proyecto",
-        "pause": "Pausar rotación automática",
-        "play": "Reanudar rotación automática",
-        "prev": "Proyecto anterior",
-        "next": "Proyecto siguiente"
-      },
-      "socials": "Perfiles y contacto directo"
+      "ctaProjects": "Ver proyectos",
+      "socials": "Perfiles y contacto directo",
+      "emailLabel": "Correo",
+      "photoAlt": "Alejandro Cruz, desarrollador Full Stack"
     },
     "perfil": {
-      "projectsStat": "Casos de estudio",
-      "certificatesStat": "Certificaciones",
-      "kicker": "< Trayectoria />",
+      "kicker": "< Quién soy />",
       "title": "Sobre mí",
-      "intro": "Desarrollo de software centrado en resolver problemas reales de negocio con arquitectura sólida y código mantenible.",
-      "p1": "Soy Alejandro Alfredo Cruz Llocya (DrocuxDev), desarrollador Full Stack en Lima, Perú. Me especializo en construir sistemas ERP, plataformas SaaS y automatizaciones que agilizan las operaciones de pequeñas y medianas empresas.",
-      "p2": "Combino la robustez de Laravel y MySQL en el backend con la reactividad de React y Tailwind CSS en el frontend, sumando Python para flujos automatizados. Mi prioridad es entregar código limpio, seguro y fácil de escalar.",
-      "keywords": [
-        "Sistemas ERP",
-        "Arquitectura Limpia",
-        "Enfoque a Resultados"
-      ],
-      "factsTitle": "Perfil Profesional",
-      "facts": [
+      "summary": "Soy desarrollador Full Stack en Lima, Perú. Construyo sistemas ERP, plataformas SaaS y automatizaciones que ayudan a pequeñas y medianas empresas a ordenar y agilizar su operación, con código limpio y fácil de escalar.",
+      "remote": "Remoto",
+      "projectsStat": "proyectos",
+      "certificatesStat": "certificaciones",
+      "highlights": [
         {
-          "label": "Marca",
-          "value": "DrocuxDev"
+          "icon": "database",
+          "title": "ERP & SaaS",
+          "text": "Inventarios, compras, facturación y plataformas multi-rol pensadas para el día a día de un negocio."
         },
         {
-          "label": "Rol",
-          "value": "Full Stack · ERP & SaaS"
-        },
-        {
-          "label": "Disponibilidad",
-          "value": "Freelance & Contratos"
-        },
-        {
-          "label": "Ubicación",
-          "value": "Lima, Perú (Remoto)"
-        }
-      ],
-      "focusTitle": "Especialidades",
-      "focus": [
-        "Sistemas ERP & Facturación",
-        "Plataformas SaaS",
-        "Automatización con Python",
-        "Aplicaciones Web React"
-      ],
-      "eduTitle": "Formación y Enfoque",
-      "timeline": [
-        {
-          "period": "ESPECIALIDAD",
-          "title": "Sistemas ERP & SaaS",
-          "text": "Diseño de arquitecturas completas: bases de datos relacionales, inventarios, compras y plataformas multi-rol."
-        },
-        {
-          "period": "STACK CENTRAL",
+          "icon": "code",
           "title": "Laravel · React · Python",
-          "text": "Backend en Laravel y PHP con MySQL; frontend interactivo con React y Vite; scripts de automatización en Python."
+          "text": "Backend sólido, interfaces modernas y scripts que eliminan tareas repetitivas."
         },
         {
-          "period": "ACADÉMICO",
-          "title": "Software & Redes (SENATI / Cisco)",
-          "text": "Formación técnica continua en desarrollo de software, POO, fundamentos de redes y ciencia de datos."
+          "icon": "graduation",
+          "title": "SENATI · Cisco",
+          "text": "Formación técnica continua en desarrollo de software, redes y ciencia de datos."
         }
       ]
     },
@@ -293,79 +251,37 @@ export const translations = {
       "menu": "Menu"
     },
     "hero": {
-      "eyebrow": "Alejandro Cruz · DrocuxDev",
-      "badge": "Available for freelance projects & Full Stack roles",
-      "role": "Full Stack Developer | ERP, SaaS & Automations",
-      "headline": "I build custom ERP systems, SaaS platforms, and automations.",
+      "badge": "Available for freelance projects",
+      "greeting": "Hi, I'm",
+      "role": "Full Stack Developer · ERP, SaaS & Automations",
       "subheadline": "Robust, scalable business software built with React, Laravel, and Python.",
-      "ctaProjects": "View featured projects",
-      "ctaContact": "Let's discuss your project",
-      "carousel": {
-        "regionLabel": "Featured projects carousel",
-        "slideLabel": "of",
-        "viewProject": "View project",
-        "pause": "Pause autoplay",
-        "play": "Resume autoplay",
-        "prev": "Previous project",
-        "next": "Next project"
-      },
-      "socials": "Profiles and direct contact"
+      "ctaProjects": "View projects",
+      "socials": "Profiles and direct contact",
+      "emailLabel": "Email",
+      "photoAlt": "Alejandro Cruz, Full Stack developer"
     },
     "perfil": {
-      "projectsStat": "Case studies",
-      "certificatesStat": "Certifications",
-      "kicker": "< Background />",
+      "kicker": "< Who I am />",
       "title": "About me",
-      "intro": "Software development focused on solving real business problems with robust architecture and clean code.",
-      "p1": "I am Alejandro Alfredo Cruz Llocya (DrocuxDev), a Full Stack developer based in Lima, Peru. I specialize in building custom ERP systems, SaaS platforms, and automations that help businesses streamline everyday operations.",
-      "p2": "I combine the robustness of Laravel and MySQL on the backend with modern, reactive React and Tailwind CSS on the frontend, using Python for automated tasks and workflows. My focus is writing clean, scalable, and secure code.",
-      "keywords": [
-        "ERP Systems",
-        "Clean Architecture",
-        "Results-Driven"
-      ],
-      "factsTitle": "Professional Profile",
-      "facts": [
+      "summary": "I'm a Full Stack developer based in Lima, Peru. I build ERP systems, SaaS platforms, and automations that help small and mid-sized businesses organize and streamline their operations, with clean, scalable code.",
+      "remote": "Remote",
+      "projectsStat": "projects",
+      "certificatesStat": "certifications",
+      "highlights": [
         {
-          "label": "Brand",
-          "value": "DrocuxDev"
+          "icon": "database",
+          "title": "ERP & SaaS",
+          "text": "Inventory, purchasing, invoicing and multi-role platforms built for everyday business operations."
         },
         {
-          "label": "Role",
-          "value": "Full Stack · ERP & SaaS"
-        },
-        {
-          "label": "Availability",
-          "value": "Freelance & Full-time"
-        },
-        {
-          "label": "Location",
-          "value": "Lima, Peru (Remote)"
-        }
-      ],
-      "focusTitle": "Core Capabilities",
-      "focus": [
-        "ERP & Inventory Systems",
-        "SaaS Cloud Platforms",
-        "Python Automations",
-        "React Web Applications"
-      ],
-      "eduTitle": "Training & Path",
-      "timeline": [
-        {
-          "period": "SPECIALTY",
-          "title": "ERP & SaaS Systems",
-          "text": "Full-cycle design of business tools: relational databases, warehouse inventory, quotations, and role-based workflows."
-        },
-        {
-          "period": "CORE STACK",
+          "icon": "code",
           "title": "Laravel · React · Python",
-          "text": "Backend logic in Laravel and PHP with MySQL; interactive frontend in React + Vite; automated scripts in Python."
+          "text": "Solid backends, modern interfaces and scripts that remove repetitive work."
         },
         {
-          "period": "ACADEMIC",
-          "title": "Software & Networks (SENATI / Cisco)",
-          "text": "Rigorous technical background in software engineering, OOP, computer networking, and data fundamentals."
+          "icon": "graduation",
+          "title": "SENATI · Cisco",
+          "text": "Ongoing technical training in software development, networking and data science."
         }
       ]
     },
