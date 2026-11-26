@@ -95,6 +95,8 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 16 / 10;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
   background: #000;
 }
 .case-card__media img {

@@ -55,31 +55,18 @@ const Proyectos = () => {
 
         <div className="case-card__content">
           <div className="case-card__visual">
-            <div className="window-frame">
-              <div className="window-frame__bar">
-                <div className="window-frame__dots" aria-hidden="true">
-                  <span className="window-frame__dot window-frame__dot--red" />
-                  <span className="window-frame__dot window-frame__dot--yellow" />
-                  <span className="window-frame__dot window-frame__dot--green" />
-                </div>
-                <div className="window-frame__address">
-                  <span>{project.windowUrl || `app://${project.id}.drocuxdev`}</span>
-                </div>
-              </div>
-
-              <div className="case-card__media">
-                <img
-                  src={project.image}
-                  alt={copy.imageAlt}
-                  loading="lazy"
-                  decoding="async"
-                  width="720"
-                  height="450"
-                />
-                <p className="case-card__status">
-                  <span className="status-dot" aria-hidden="true" /> {t.statusValue}
-                </p>
-              </div>
+            <div className="case-card__media">
+              <img
+                src={project.image}
+                alt={copy.imageAlt}
+                loading="lazy"
+                decoding="async"
+                width="720"
+                height="450"
+              />
+              <p className="case-card__status">
+                <span className="status-dot" aria-hidden="true" /> {t.statusValue}
+              </p>
             </div>
           </div>
 
